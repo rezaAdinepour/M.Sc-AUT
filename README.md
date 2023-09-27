@@ -13,7 +13,7 @@
 | 5 | CE5405 | Low-Power Digital Systems Design |
 | 6 | CE5406 | Distributed Systems |
 | 7 | CE5407 | Dependable Systems Design |
-| 8 | - | Seminar |
+| 8 | - | [Seminar](https://github.com/rezaAdinepour/M.Sc-AUT/tree/main/Seminar) |
 
 ### Group 2:
 | Row  | Course ID |  Course Name |
