@@ -3,7 +3,7 @@
 
 ## CE Chart
 ### Group 1:
-| Row  | Course ID |  Course Name |
+| Row  | Course ID |  Course Name |                                                                 | Row  | Course ID |  Course Name |
 | ------------- | ------------- | ------------- |
 | 1 | CE5401 | Advanced VLSI Circuit Design |
 | 2 | CE5402 | Advanced Computer Architecture |
