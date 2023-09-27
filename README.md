@@ -30,3 +30,16 @@
 | 11 | CE5440 | Cyber-Physical Systems |
 | 12 | CE5441 | Cloud Computing |
 | 13 | CE5442 | Parallel Processing |
+| 14 | CE5443 | Advanced Operating Systems |
+| 15 | CE5444 | Advanced Dependable Systems Design |
+| 16 | CE5445 | Hardware Verification |
+| 17 | CE5446 | Testing and Testable System Design |
+| 18 | CE5447 | Hardware Security and Trust |
+| 19 | CE5201 | Computer Security |
+| 20 | CE5601 | Advanced Computer Networks |
+| 21 | CE5622 | Performance Evaluation of Computer Systems and Networks |
+| 22 | CE5604 | Architecture of Network Devices |
+| 23 | CE5448 | Special Topics in Computer Systems Architecture I |
+| 24 | CE5449 | Special Topics in Computer Systems Architecture II |
+
+
