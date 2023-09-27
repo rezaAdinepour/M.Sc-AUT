@@ -1,2 +1,2 @@
-## M.Sc Courses and Documents of Computer Engineering at [Amirkabir University of Technology (Tehran Polytechnic)](https://aut.ac.ir/en)
+# Courses of [CE](https://ce.aut.ac.ir/) Department at [Amirkabir University of Technology (Tehran Polytechnic)](https://aut.ac.ir/en)
 M.Sc-AUT
