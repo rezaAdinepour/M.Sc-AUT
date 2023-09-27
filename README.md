@@ -1,4 +1,4 @@
-# Courses of [CE](https://ce.aut.ac.ir/) Department at [Amirkabir University of Technology (Tehran Polytechnic)](https://aut.ac.ir/en)
+# Courses of Computer Systems Architecture at [CE](https://ce.aut.ac.ir/) Department of [Amirkabir University of Technology (Tehran Polytechnic)](https://aut.ac.ir/en)
 
 
 ## CE Chart
