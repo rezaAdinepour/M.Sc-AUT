@@ -4,5 +4,5 @@
 ### E-mail: [msedighi@aut.ac.ir](mailto:msedighi@aut.ac.ir)
 
 ### Reference:
- *coming soon* ([find here](https://github.com/rezaAdinepour/M.Sc-AUT/tree/main/Advanced%20Computer%20Architecture/Reference))
+ *coming soon* ([find here](https://github.com/rezaAdinepour/M.Sc-AUT/tree/main/Advanced%20VLSI/Reference))
 
