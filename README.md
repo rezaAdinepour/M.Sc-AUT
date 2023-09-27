@@ -2,10 +2,8 @@
 
 
 ## CE Chart
-
-|          Group 1              |
-| ------------- | ------------- |
-| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+### Group 1:
+| Row  | Course ID |  Course Name |
+| ------------- | ------------- | ------------- |
+| Content Cell  | Content Cell  | 123 |
+| Content Cell  | Content Cell  | 123 |
