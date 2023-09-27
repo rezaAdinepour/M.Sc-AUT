@@ -1,0 +1,118 @@
+\ProvidesPackage{uni-environments}[2023/02/23 ...]
+
+\newenvironment{conclusion}{
+    \begin{center}
+        \rule{0.9\linewidth}{0.5pt}
+        \begin{abstract}}{
+        \end{abstract}
+        \rule{0.9\linewidth}{0.5pt}
+    \end{center}
+}
+
+\newenvironment{qsolve}[1][\@defsolvetitle]{\begin{tcolorbox}[title=#1,
+            % colframe=blue!25,
+            % colback=blue!10,
+            % coltitle=blue!20!black,
+        ]}{\end{tcolorbox}}
+
+\newcommand*{\splitqsolve}[1][]{
+    \end{qsolve}
+    #1
+    \begin{qsolve}[]
+}
+% \newcommand{\FourQuads}[8]{
+%     \begin{tcbraster}[raster columns=2, raster rows=2, raster height=.65\textheight,
+%             enhanced, size=small, sharp corners, boxrule=0pt,
+%             % colbacktitle=structure.fg!20!bg,
+%             % coltitle=structure.fg,
+%             % colback=structure.fg!10!bg,
+%         ]
+%         \begin{tcolorbox}[title=#1]#2\end{tcolorbox}
+%         \begin{tcolorbox}[title=#3]#4\end{tcolorbox}
+%         \begin{tcolorbox}[title=#5]#6\end{tcolorbox}
+%         \begin{tcolorbox}[title=#7]#8\end{tcolorbox}
+%     \end{tcbraster}
+% }
+% \renewcommand{\listitemsymbol}{-~} % Changes the symbol used for lists
+\newcommand*{\listitemsymbol}{\labelitemi~}
+% lengths
+\newlength{\quotewidth}
+\newlength{\hintscolumnwidth}
+\setlength{\hintscolumnwidth}{0.1\textwidth}
+\newlength{\separatorcolumnwidth}
+\setlength{\separatorcolumnwidth}{0.025\textwidth}
+\newlength{\maincolumnwidth}
+\newlength{\doubleitemmaincolumnwidth}
+\newlength{\listitemsymbolwidth}
+\settowidth{\listitemsymbolwidth}{\listitemsymbol}
+\newlength{\listitemmaincolumnwidth}
+\newlength{\listdoubleitemmaincolumnwidth}
+\newcommand*{\headwidth}{}
+\newlength{\columntoffset}
+\setlength{\columntoffset}{1in-2cm+0.95ex}
+
+\newcommand*{\recomputelengths}{%
+    \setlength{\quotewidth}{0.65\textwidth}%
+    % main lenghts
+    \setlength{\maincolumnwidth}{\textwidth-\separatorcolumnwidth-\hintscolumnwidth}%
+    % listitem lengths
+    \setlength{\listitemmaincolumnwidth}{\maincolumnwidth-\listitemsymbolwidth}%
+    % doubleitem lengths
+    \setlength{\doubleitemmaincolumnwidth}{\maincolumnwidth-\hintscolumnwidth-\separatorcolumnwidth-\separatorcolumnwidth}%
+    \setlength{\doubleitemmaincolumnwidth}{0.5\doubleitemmaincolumnwidth}%
+    % listdoubleitem lengths
+    \setlength{\listdoubleitemmaincolumnwidth}{\maincolumnwidth-\listitemsymbolwidth-\separatorcolumnwidth-\listitemsymbolwidth}%
+    \setlength{\listdoubleitemmaincolumnwidth}{0.5\listdoubleitemmaincolumnwidth}%
+    % fancyhdr lengths
+    \renewcommand{\headwidth}{\textwidth}%
+    % regular lengths
+    \setlength{\parskip}{0\p@}
+}
+
+\recomputelengths
+
+\newcommand*{\sectionfont}{}
+\newcommand*{\subsectionfont}{}
+\newcommand*{\sectionstyle}[1]{{\sectionfont#1}}
+\newcommand*{\subsectionstyle}[1]{{\subsectionfont#1}}
+\newcommand*{\hintstyle}[1]{{\hintfont#1}}
+\newcommand*{\hintfont}{}
+\renewcommand*{\sectionfont}{\Large\bfseries\upshape}
+\renewcommand*{\subsectionfont}{\large\bfseries\itshape}
+\renewcommand*{\hintfont}{\bfseries}
+\newlength{\baseletterheight}
+\settoheight{\baseletterheight}{\sectionstyle{o}}
+\setlength{\baseletterheight}{\baseletterheight-0.95ex}
+
+\renewcommand*{\section}[1]{%
+    \par\addvspace{2.5ex}%
+    \phantomsection{}% reset the anchor for hyperrefs
+    \addcontentsline{toc}{section}{#1}%
+    \hspace*{-\columntoffset}
+    \parbox[t]{\hintscolumnwidth}{\raggedleft\raisebox{\baseletterheight}{\color{color1}\rule{\hintscolumnwidth}{0.95ex}}}%
+    \hspace{\separatorcolumnwidth}%
+    \parbox[t]{\maincolumnwidth}{\strut\sectionstyle{#1}}%
+    \par\nobreak\addvspace{1ex}\@afterheading
+}% to avoid a pagebreak after the heading
+
+\renewcommand*{\subsection}[1]{%
+    \par\addvspace{1ex}%
+    \phantomsection{}% reset the anchor for hyperrefs
+    \addcontentsline{toc}{subsection}{#1}%
+    \hspace*{-\columntoffset}
+    \parbox[t]{0.5\hintscolumnwidth}{\strut\raggedleft\raisebox{\baseletterheight}{\color{color1}\rule{0.5\hintscolumnwidth}{0.95ex}}}%
+    \hspace{\separatorcolumnwidth}%
+    {\strut\subsectionstyle{#1}}
+    \par\nobreak\addvspace{0.5ex}\@afterheading
+}% to avoid a pagebreak after the heading
+
+\renewcommand*{\subsubsection}[1]{%
+    \par\addvspace{0.5ex}%
+    \phantomsection{}% reset the anchor for hyperrefs
+    \addcontentsline{toc}{subsection}{#1}%
+    \hspace*{-\columntoffset}
+    \parbox[t]{0.25\hintscolumnwidth}{\strut\raggedleft\raisebox{\baseletterheight}{\color{color1}\rule{0.25\hintscolumnwidth}{0.95ex}}}%
+    \hspace{\separatorcolumnwidth}%
+    {\strut\subsectionstyle{#1}}
+    \par\nobreak\addvspace{0.25ex}\@afterheading
+}% to avoid a pagebreak after the heading

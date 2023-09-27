@@ -1,0 +1,79 @@
+\section{مروری بر نمونه برداری}
+
+در این سوال قصد داریم صرفا مروری بر مفاهیم اولیه نمونه برداری داشته باشیم. در ابتدا ضرایب سری فوریه قطار ضربه ای با تناوب T را بدست
+آورید سپس با استفاده از ضرایب سری فوریه آن تبدیل فوریه این سیگنال را بدست آورید.
+
+\begin{qsolve}[]
+	\begin{eqnarray*}
+		p(t)&=&\sum_{n=-\infty}^{\infty}\delta(t-nT)\qquad \text{\lr{periodic in T}}\\
+		a_k &=&\frac{1}{T}\int_{-T/2}^{T/2}f(t)e^{jk(2\pi/T)t}dt=
+		\frac{1}{T}\int_{-T/2}^{T/2}\sum_{n=-\infty}^{\infty}\delta(t-nT)e^{jk(2\pi/T)t}dt
+		\xrightarrow{n=0}\\
+		&=&\frac{1}{T}\int_{-T/2}^{T/2}\delta(t)e^{jk(2\pi/T)t}dt=\frac{1}{T}
+		\hspace{8em}\text{\hl{$a_k=\frac{1}{T}$}}
+	\end{eqnarray*}
+	تابع متناوب است و سری فوریه دارد، پس تبدیل فوریه آن همان سری فوریه آن به صورت
+	جمع ضربه هاست.
+	\begin{eqnarray*}
+		P(j\omega)&=&\mathcal{F}\left\{\sum_{k=-\infty}^{\infty}a_ke^{jk(2\pi/T)t}\right\}=\sum_{k=-\infty}^{\infty}2\pi a_k\delta(\omega-k\frac{2\pi}{T})
+		=\frac{2\pi}{T}\sum_{k=-\infty}^{\infty}\delta(\omega-k\frac{2\pi}{T})
+	\end{eqnarray*}
+\end{qsolve}
+
+با توجه به اینکه با استفاده از این سیگنال نمونه برداری قطار ضربه از یک سیگنال پیوسته زمان انجام میدهیم و با استفاده نتیجه بدست آمده در قسمت
+قبل تبدیل فوریه سیگنال بدست آمده حاصل از ضرب این سیگنال در سیگنال دلخواه $x(t)$ را بدست آورید.
+
+\begin{qsolve}[]
+	\begin{eqnarray*}
+		x_p(t)&=&x(t)\times p(t)\Rightarrow X_p(j\omega)=\frac{1}{2\pi}X(j\omega)*P(j\omega)
+		=\frac{1}{2\pi}\convolve[\omega]{P}{X}\\
+		X_p(j\omega)&=&\frac{1}{2\pi}\sum_{k=-\infty}^{\infty}\intinf \frac{2\pi}{T}\delta(\tau-k\frac{2\pi}{T})X(j(\omega-\tau))d\tau
+		=\frac{1}{T}\sum_{k=-\infty}^{\infty}X(j(\omega-k\frac{2\pi}{T}))
+	\end{eqnarray*}
+\end{qsolve}
+
+حال نتیجه بدست آمده از قسمت قبل را با تبدیل فوریه گسسته سیگنال نمونه برداری شده $x[n]=x(nT)$ مقایسه کنید. حال شرطی روی نرخ
+نمونه برداری $F_s=\frac{1}{T_s}$ بدست آورید که تمام محتوای فرکانسی سیگنال اولیه پس از نمونه برداری حفظ شود. (شرط نایکوییست)
+
+\begin{qsolve}[]
+	پاسخ بدست آمده متناوب است، پس میتوان آن را به صورت یک سری فوریه نوشت.
+	یعنی داریم که : $X(j\omega)=\sum_{n=-\infty}^{\infty}C_ke^{jk\omega_0\omega}$
+	\splitqsolve
+	\begin{eqnarray*}
+		X_p(j\omega)&=&\frac{1}{T}\sum_{k=-\infty}^{\infty}X(j(\omega-k\frac{2\pi}{T}))
+		\xrightarrow{\text{\lr{periodic in $\frac{2\pi}{T}$}}}\sum_{n=-\infty}^{\infty}C_ne^{jnT\omega}\\
+		C_n&=&\frac{1}{2\pi/T}\int_{-\pi/T}^{\pi/T}X_p(j\omega)e^{jnT\omega}d\omega
+		=\frac{T}{2\pi}\int_{-\pi/T}^{\pi/T}\frac{1}{T}\sum_{k=-\infty}^{\infty}X(j(\omega-k\frac{2\pi}{T}))e^{jnT\omega}d\omega\\
+		&=&\xrightarrow{k=0}\frac{1}{2\pi}\int_{-\pi/T}^{\pi/T}X(j\omega)e^{jnT\omega}d\omega
+	\end{eqnarray*}
+	حال اگر داشتیم که $X(j\omega)\{|\omega|\leq\frac{\pi}{T}\}=0$
+	\begin{eqnarray*}
+		C_n&=&\frac{1}{2\pi}\int_{-\pi/T}^{\pi/T}X(j\omega)e^{jnT\omega}d\omega=
+		\frac{1}{2\pi}\int_{-\infty}^{\infty}X(j\omega)e^{jnT\omega}d\omega=x(nT)\\
+		X_p(j\omega)&=&\sum_{n=-\infty}^{\infty}C_ne^{jnT\omega}=\sum_{n=-\infty}^{\infty}x(nT)e^{jnT\omega}
+		=\sum_{n=-\infty}^{\infty}x[n]e^{jnT\omega}=X(e^{j\Omega})\when_{\Omega=\omega T}
+	\end{eqnarray*}
+	که این به ما شرط نایکوییست را میدهد. به صورتی که:
+	\[
+		\text{ : اگر داشته باشیم}
+        \forall \omega \geq \omega_s = \frac{\pi}{T}: X(j\omega)=0\Longrightarrow X_p(j\omega)=X(e^{j\Omega})\when_{\Omega=\omega T}
+	\]
+\end{qsolve}
+
+فرض کنید به علت محدودیت هایی که داریم شرط نایکوییست برقرار نباشد در این حالت روشی پیشنهاد دهید که محتوای فرکانسی کمتری از سیگنال
+در اثر نمونه برداری از بین برود.
+
+\begin{qsolve}[]
+    ناچار ایم که مقداری اطلاعات از دست بدهیم، زیرا در حالت خالص نمونه برداری، شرط نایکوییست برقرار نیست 
+    و دچار اعوجاج فرکانسی هستیم.
+
+    میتوانیم قبل از نمونه برداری اطلاعات فرکانسی را کم کنیم، اینگونه اطلاعات از بین رفته و 
+    فرکانسی اطلاعات کاهش میابد، ولی حداقل اعوجاج فرکانسی نداریم و نویز با فرکانس پایین ایجاد نمیکنیم.
+
+    به این کار Anti-Aliasing میگوییم. به این صورت که قبل از نمونه برداری، یک \lr{low-pass filter} استفاده میکنیم.
+
+    \begin{center}
+        \includegraphics*[width=0.8\linewidth]{pics/anti-aliasing.png}
+        \captionof{figure}{\lr{anti aliasing diagram}}
+    \end{center}
+\end{qsolve}

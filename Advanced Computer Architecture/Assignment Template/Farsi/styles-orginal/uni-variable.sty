@@ -1,0 +1,50 @@
+\ProvidesPackage{uni-variable}[2023/02/23 ...]
+
+\newif\if@mylang\@mylangfalse
+\DeclareOption{en}{\@mylangtrue}
+\DeclareOption*{\OptionNotUsed}
+\ProcessOptions\relax
+
+\if@mylang
+    \newcommand{\initVars}{
+        \gdef\@title{\sigline{title of document}}
+        \gdef\@prof{\sigline{name of professor}}
+        \gdef\@department{department: \sigline{department}}
+        \gdef\@subject{\sigline{subject of document}}
+        \gdef\@info{author: \sigline{author name}}
+        \gdef\@subtitle{\,}
+        \gdef\@mydate{date: \sigline{1400/00/00}}
+        \gdef\@defsolvetitle{Soloution}
+        \gdef\@Page{Page}
+        \gdef\@of{of}
+        \gdef\@End{End of}
+    }
+\else
+    \newcommand{\initVars}{
+        \gdef\@title{\sigline{موضوع فایل}}
+        \gdef\@prof{\sigline{نام استاد}}
+        \gdef\@department{دانشکده: \sigline{نام دانشکده}}
+        \gdef\@subject{\sigline{موضوع برگه عنوان}}
+        \gdef\@info{نویسنده: \sigline{نام نویسنده}}
+        \gdef\@subtitle{\,}
+        \gdef\@mydate{تاریخ: \sigline{1400/00/00}}
+        \gdef\@defsolvetitle{پاسخ}
+        \gdef\@Page{صفحه}
+        \gdef\@of{از}
+        \gdef\@End{پایان}
+    }
+\fi
+
+\initVars
+
+\newcommand{\prof}[1]{\gdef\@prof{#1}}
+\newcommand{\department}[1]{\gdef\@department{#1}}
+\newcommand{\subject}[1]{\gdef\@subject{#1}}
+\newcommand{\info}[1]{\gdef\@info{#1}}
+\newcommand{\subtitle}[1]{\gdef\@subtitle{#1}}
+\renewcommand{\date}[1]{\gdef\@mydate{#1}}
+
+\gdef\@logo{logo/logo}
+\newcommand{\logo}[1]{\gdef\@logo{#1}}
+\gdef\@logotwo{logo/logo2}
+\newcommand{\logotwo}[1]{\gdef\@logotwo{#1}}

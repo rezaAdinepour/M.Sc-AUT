@@ -1,0 +1,34 @@
+\documentclass[12pt]{article}
+\usepackage{blindtext}
+\usepackage[bordered]{uni-style}
+\usepackage{uni-math}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{color,soul}
+\usepackage{wrapfig}
+\usepackage{capt-of}
+\title{معماری کامپیوتر پیشرفته}
+\prof{دکتر حامد فربه}
+% \subtitle{latex and documents}
+\subject{تمرین سری اول}
+\info{
+    \begin{tabular}{lr}
+        رضا آدینه پور & 402131055\\
+    \end{tabular}
+}
+\date{\today}
+\department{دانشکده مهندسی کامپیوتر}
+
+\usepackage[final]{pdfpages}
+
+\usepackage{xepersian}
+\settextfont{Yas}
+
+\begin{document}
+\maketitlepage
+\maketitlestart
+\foreach \x in {1,2,...,5}{
+    \input{questions/Q\x.tex}
+    \clearpage
+}
+\end{document}
