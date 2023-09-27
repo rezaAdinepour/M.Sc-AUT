@@ -42,4 +42,17 @@
 | 23 | CE5448 | Special Topics in Computer Systems Architecture I |
 | 24 | CE5449 | Special Topics in Computer Systems Architecture II |
 
+### Group 3:
+| Row  | Course ID |  Course Name |
+| ------------- | ------------- | ------------- |
+| 1 | CE5653 | Stochastic Process |
+| 2 | CE5572 | Digital Signal Processing |
+| 3 | CE5506 | Evolutionary Computing |
+| 4 | CE5550 | Applied Machine Learning |
+| 5 | CE5504 | Pattern Recognition |
+| 6 | CE5651 | Optimization Theory with Applications to Networks |
+| 7 | CE5570 | Convex Optimization |
+| 8 | CE5331 | Game Theory |
+| 9 | CE5652 | Coding and Information Theory |
+| 10 | CE5308 | Parallel Algorithms |
 
