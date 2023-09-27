@@ -1,4 +1,4 @@
-# Latex styles I use for uni
+# Latex styles I use for assignment
 
 this is just a simple set of latex styles i use regularly for my uni related documents.
 `main.tex` shows a sample of how i use it.
