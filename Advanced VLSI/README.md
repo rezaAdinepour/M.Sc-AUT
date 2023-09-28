@@ -8,10 +8,13 @@
  
 ### Scores:
 | Row  | type |  Portion |
-| ----- |: ----- | ----- |
+| ----- | ----- | ----- |
 | 1 | Quiz & Assignment | 25% |
 | 2 | Research | 25% |
 | 3 | Project | 25% |
 | 4 | Final | 25% |
 
+
+| Default Header | Left Align | Right Align | Center Align |
+| ---            | :--        |         --: |      :-:     |
 
