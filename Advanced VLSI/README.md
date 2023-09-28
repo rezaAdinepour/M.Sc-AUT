@@ -4,7 +4,7 @@
 ### E-mail: [msedighi@aut.ac.ir](mailto:msedighi@aut.ac.ir)
 
 ### Reference:
- *coming soon* ([find here](https://github.com/rezaAdinepour/M.Sc-AUT/tree/main/Advanced%20VLSI/Reference))
+Neil H. E. Weste and D. M. Harris, *CMOS VLSI Design A Circuits and Systems Perspective,* 4th Edition, Addison-Wesley, 2011 ([find here](https://github.com/rezaAdinepour/M.Sc-AUT/tree/main/Advanced%20VLSI/Reference))
  
 ### Scores:
 | Row | type | Portion |
