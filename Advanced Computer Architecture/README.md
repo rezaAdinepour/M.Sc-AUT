@@ -6,5 +6,15 @@
 ### Reference:
  J. L. Hennessy and D. A. Patterson, *Computer Architecture: A Quantitative Approach,* 6th Edition, Morgan Kaufmann, 2017 ([find here](https://github.com/rezaAdinepour/M.Sc-AUT/tree/main/Advanced%20Computer%20Architecture/Reference))
 
+ ### Scores: *coming soon*
+| Row | type | Portion |
+| --- | :-:  | :-: |  
+| 1 | Quiz & Assignment | - |
+| 2 | Research | - |
+| 3 | Project | - |
+| 4 | Final | - |
+
 ### Simulator:
 [Gem5](https://www.gem5.org/) - you can find more information [here](https://www.gem5.org/getting_started/).
+
+
