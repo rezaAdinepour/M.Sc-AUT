@@ -5,7 +5,7 @@
 
 ### Group 1:
 | Row  | Course ID |  Course Name |
-| ------------- | ------------- | ------------- |
+| ------------- | :-: | ------------- |
 | 1 | CE5401 | [Advanced VLSI Circuit Design](https://github.com/rezaAdinepour/M.Sc-AUT/tree/main/Advanced%20VLSI) |
 | 2 | CE5402 | [Advanced Computer Architecture](https://github.com/rezaAdinepour/M.Sc-AUT/tree/main/Advanced%20Computer%20Architecture) |
 | 3 | CE5403 | Reconfigurable Systems |
