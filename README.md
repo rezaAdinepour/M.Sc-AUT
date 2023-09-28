@@ -17,7 +17,7 @@
 
 ### Group 2:
 | Row  | Course ID |  Course Name |
-| ------------- | ------------- | ------------- |
+| ------------- | :-: | ------------- |
 | 1 | CE5430 | VLSI Design Algorithms |
 | 2 | CE5431 | Memory Technologies |
 | 3 | CE5432 | High-Speed Digital Integrated Circuits Design |
@@ -45,7 +45,7 @@
 
 ### Group 3:
 | Row  | Course ID |  Course Name |
-| ------------- | ------------- | ------------- |
+| ------------- | :-: | ------------- |
 | 1 | CE5653 | Stochastic Process |
 | 2 | CE5572 | Digital Signal Processing |
 | 3 | CE5506 | Evolutionary Computing |
