@@ -15,8 +15,8 @@
 | 4 | Final | 25% |
 
 
-| Row | Left Align | Right Align | Center Align |
-| ---            | :-:        |         --: |      :-:     |
+| Row | type | Portion | Center Align |
+| ---            | :-:        | :-: |      :-:     |
 | 1 | Quiz & Assignment | 25% | 54 |
 | 2 | Research | 25% | 54 |
 | 3 | Project | 25% | 54 |
