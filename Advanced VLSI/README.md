@@ -8,7 +8,7 @@
  
 ### Scores:
 | Row  | type |  Portion |
-| ------------- :|: ------------- | ------------- |
+| ----- | ----- | ----- |
 | 1 | Quiz & Assignment | 25% |
 | 2 | Research | 25% |
 | 3 | Project | 25% |
