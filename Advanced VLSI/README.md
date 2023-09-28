@@ -7,12 +7,10 @@
  *coming soon* ([find here](https://github.com/rezaAdinepour/M.Sc-AUT/tree/main/Advanced%20VLSI/Reference))
  
 ### Scores:
-| 1 | CE5401 | [Advanced VLSI Circuit Design](https://github.com/rezaAdinepour/M.Sc-AUT/tree/main/Advanced%20VLSI) |
-| 2 | CE5402 | [Advanced Computer Architecture](https://github.com/rezaAdinepour/M.Sc-AUT/tree/main/Advanced%20Computer%20Architecture) |
-| 3 | CE5403 | Reconfigurable Systems |
-| 4 | CE5404 | Digital Systems Synthesis |
-| 5 | CE5405 | Low-Power Digital Systems Design |
-| 6 | CE5406 | Distributed Systems |
-| 7 | CE5407 | Dependable Systems Design |
-| 8 | - | [Seminar](https://github.com/rezaAdinepour/M.Sc-AUT/tree/main/Seminar) |
+| Row  | type |  Portion |
+| ------------- | ------------- | ------------- |
+| 1 | Quiz & Assignment | 25% |
+| 2 | Research | 25% |
+| 3 | Project | 25% |
+| 4 | Final | 25% |
 
