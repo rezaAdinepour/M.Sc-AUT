@@ -16,13 +16,3 @@
 
 ### Simulator:
 [Gem5](https://www.gem5.org/) - you can find more information [here](https://www.gem5.org/getting_started/).
-
-### Offline videos link:
-| Lecture | Link | Total (from 22) |
-| --- | :-:  | :-: |  
-| 1 | [download](https://courses.aut.ac.ir/mod/folder/download_folder.php?id=722920) | 4 |
-| 2 | Assignment | 4 |
-| 3 | Project | 4 |
-| 4 | Final | 10 |
-
-
