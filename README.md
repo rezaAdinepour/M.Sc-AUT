@@ -57,3 +57,7 @@
 | 9 | CE5652 | Coding and Information Theory |
 | 10 | CE5308 | Parallel Algorithms |
 
+
+
+## License
+This project is licensed under the [MIT License](LICENSE).
