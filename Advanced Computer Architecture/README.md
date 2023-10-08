@@ -16,3 +16,11 @@
 
 ### Simulator:
 [Gem5](https://www.gem5.org/) - you can find more information [here](https://www.gem5.org/getting_started/).
+
+### Time Table
+| Row | Computer Assignment | Theory Assignment | Quiz |
+| --- | :-:  | :-: |  
+| 1 | Quiz | 4 |
+| 2 | Assignment | 4 |
+| 3 | Project | 4 |
+| 4 | Final | 10 |
