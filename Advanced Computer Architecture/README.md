@@ -17,7 +17,7 @@
 ### Simulator:
 [Gem5](https://www.gem5.org/) - you can find more information [here](https://www.gem5.org/getting_started/).
 
-Read tutorial [here](https://github.com/rezaAdinepour/M.Sc-AUT/tree/main/Advanced%20Computer%20Architecture/HWs/Simulation/Gem5_Tutorial.pdf)
+Read tutorial [here](https://github.com/rezaAdinepour/M.Sc-AUT/tree/main/Advanced%20Computer%20Architecture/HWs/Simulation/Gem5_Tutorial.pdf).
 
 ### Time Table
 | Row | Computer Assignment | Theory Assignment | Quiz |
