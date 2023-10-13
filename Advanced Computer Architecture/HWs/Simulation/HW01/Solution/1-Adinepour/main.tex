@@ -1,0 +1,224 @@
+%           ******************************************************
+%          **   course         : Advanced Computer Architecture  **
+%         ***   HomeWork       : 01                              ***
+%        ****   Topic          : Introduction to Gem5            ****
+%        ****   AUTHOR         : Reza Adinepour                  ****
+%         ***   Student ID:    : 402131055                       ***
+%          **   Github         : github.com/rezaAdinepour/       **
+%           ******************************************************
+
+\documentclass[12pt]{exam}
+
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{graphicx,subfigure,wrapfig}
+\usepackage{multirow}
+\usepackage{matlab-prettifier}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\hypersetup{pdfborder = {0 0 0}}
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+\usepackage{xcolor, color, soul}
+\usepackage[margin=20mm]{geometry}
+\usepackage{xepersian}
+\settextfont{XB Niloofar}
+
+\newcommand{\class}{معماری کامپیوتر پیشرفته}
+\newcommand{\term}{نیم‌سال اول ۰۲-۰۳}
+\newcommand{\college}{دانشکده مهندسی کامپیوتر}
+\newcommand{\prof}{استاد: دکتر فربه}
+
+\singlespacing
+\parindent 0ex
+
+\begin{document}
+
+\include{info}
+\pagestyle{empty}
+\include{cover-page}
+
+% These commands set up the running header on the top of the exam pages
+\pagestyle{head}
+\firstpageheader{}{}{}
+\runningheader{صفحه \thepage\ از \numpages}{}{\class}
+\runningheadrule
+
+\vspace{0pt}
+
+
+\begin{questions}
+	\pointpoints{نمره}{نمره}
+	
+	% Project details
+	\question \textbf{شرح پروژه}:
+		تحقیق در مورد شبیه‌ساز Gem5 و مقایسه با حداقل ۲ شبیه‌ساز مشابه و گزارش موارد زیر برای هرکدام:
+		\begin{enumerate}
+			\item عملکرد کلی
+			\item مزایا
+			\item سیستم‌عامل میزبان
+			\item نحوه اجرا شبیه‌ساز و دریافت خروجی
+			\item سایر موارد...
+		\end{enumerate}
+		\vfil
+\end{questions}
+
+
+\begin{multicols}{2}
+	
+	\section{تاریخچه}
+	GEM5 نرم‌افزاری متن‌باز\footnote{Sourse Open} در حوزه شبیه‌سازی معماری سیستم‌های کامپیوتریست که کاربر‌های بسیاری در محیط آکادمیک و صنعت دارد. ۱۵ سال قبل، در دانشگاه میشیگان\footnote{Michigan of University} به‌هنگام تحقیق و توسعه پروژه‌های GEMS و M5 ، نرم‌افزار GEM5 ایجاد شد.
+	
+	
+	
+	\section{معرفی}
+	نرم‌افزار جم۵ برای شبیه‌سازی رفتاری و عملکرد سیستم‌های کامپیوتری در سطوح مختلف از جمله پردازنده، حافظه‌ها و دستگاه‌های ورودی و خروجی طراحی شده است. می‌توان مجموعه ای از دستور‌العمل ها \footnote{Architecture Set Instruction}، ریزمعماری\footnote{Architecture Micro} و سیستم‌های حافظه را مدل کرد و امکان تجزیه و تحلیل دقیق اجزای آن‌ها را فراهم کرد. جم۵ این امکان را به محققان حوزه معماری کامپیوتر می‌دهد تا طراحی‌های مختلف در این حوزه را قبل از ساخت فیزیکی، بررسی و ارزیابی کنند. این نرم‌افزار طیف وسیعی از پردازنده ها را مانند ،ARM ،X86-64 ،MIPS Alpha و RISC-5 را پشتیبانی می‌کند. در جم۵ حالت های شبیه‌سازی مختلفی وجود دارد. مانند شبیه‌سازی کامل سیستم که کل اجزای سیستم را مدل می‌کند و شبیه‌سازی syscall که بر شبیه‌سازی رفتاری برنامه های سطح کاربر تمرکز دارد.
+	
+	شبیه‌ساز ،MARS ،SimpleScalar ،FacSim ،Cact-I NVSim و Dinero
+	دیگر نرم‌افزار های شبیه‌سازی در حوزه معماری سیستم‌های کامپیوتری هستند.
+	
+	در این مقاله، به مقایسه \hl{GEM5} با \hl{Scaler} و \hl{Deniro-IV} می‌پردازیم.
+	
+	
+	
+	\section{SimpleScalar}
+	مجموعه ابزار نام برده شده از کامپایلر\footnote{Compiler}، اسمبلر\footnote{assembler}، لینکر\footnote{linker} و شبیه‌ساز سیستم است. همچنین می‌تواند برنامه های واقعی را بر روی طیف وسیعی از پردازنده ها و سیستم‌های مدرن اجرا کند.
+	
+	این نرم‌افزار هم متن باز است و به راحتی امکانات فراوانی را برای توسعه سیستم‌های کامپیوتری در اختیار محققان قرار می‌دهد.
+	
+	این شبیه‌ساز با معماری و سیستم‌های زیر سازگار است:
+	\begin{latin}
+		\begin{center}
+			\small\addtolength{\tabcolsep}{-5pt}
+			\begin{tabular}{||c c c||} 
+				\hline
+				Architecture & Operating System & Compiler \\ [0.5ex] 
+				\hline\hline
+				x86 & Free BSD 2.2 & gcc \\ 
+				\hline
+				x86 & CygWin32/Windows NT & gcc \\
+				\hline
+				x86 & Linux1.3 & gcc \\
+				\hline
+				x86 & Solaris2 & gcc \\
+				\hline
+				SPARC & SunOS 4.1.3 & gcc \\ 
+				\hline
+				
+				SPARC & Solaris 2 & gcc \\
+				\hline
+				RS6000 & AIX 4.1.3 & gcc \\
+				\hline
+				RS6000 & AIX 4.1.3 & xlc \\
+				\hline
+				PA-RISC & HPUX & gcc \\
+				\hline
+				Alpha & DEC Unix 3.2 & gcc \\
+				\hline
+				Alpha & DEC Unix 3.2 & c89 \\ [1ex] 
+				\hline
+			\end{tabular}
+		\end{center}
+	\end{latin}
+	
+	
+	
+	\section{Deniro-IV}
+	این نرم‌افزار،‌برای شبیه‌سازی حافظه Catch مورد استفاده قرار می‌گیرد که نسبت به ورژن سوم خود تغییرات زیر را داشته است:
+	\begin{itemize}
+		\item رابط قابل فراخوانی زیر روال علاوه
+		\item شبیه‌سازی Catch های چند سطحی
+		\item شبیه‌سازی Catch های I و D
+		\item پشتیبانی از چندین فرمت ورودی
+		\item افزایش portability
+	\end{itemize}
+	
+	در این نرم‌افزار، هیچ مفهومی از زمان و سیکل \footnote{Sycle} های زمانی نیست یا به عبارتی دیگر، SimpleScalar یک شبیه‌ساز زمان‌بندی نیست.
+	
+	SimpleScalar چند رشته ای نیست. اگر یک مالتی‌پراسسور با حافظه کافی دارید، می‌توانید چندین شبیه‌سازی مستقل را همزمان باهم اجرا کنید.
+	
+	Dinero-IV با استفاده از conf auto Gnu ساخته و با ،x86/linux ،Alpha/Linux ،Alpha/OSF SGI/IRIX-6 ،RS6000/AIX ،x86/Solaris و Sparc/Solaris تست شده است.
+	
+	
+	
+	\section{مزایا}
+	عملکرد کلی جم۵ بسته به مورد استفاده و پیکره‌بندی \footnote{Configuration} خاص می‌تواند متفاوت باشد. در ادامه عواملی که می‌تواند بر عملکرد جم۵ تاثیر بگذارد را بررسی می‌کنیم:
+	
+	\begin{enumerate}[label=\Roman*.]
+		\item \textbf{حالت شبیه‌سازی: }جم۵ شبیه‌سازی های مختلفی مانند شبیه‌سازی کامل سیستم، شبیه‌سازی Syscall و ... را ارائه می‌دهد. شبیه‌سازی کامل سیستم که تمام اجزای سیستم کامپیوتری را شبیه‌سازی می‌کند، در مقایسه با حالت های دیگر، پر مصرف‌ترین و کند‌ترین حالت شبیه‌سازی است.
+		
+		\item \textbf{دقت شبیه‌سازی: }جم۵ سطوح مختلفی از جزئیات را در مدل‌سازی سیستم‌های کامپیوتری از جمله خطوط لوله \footnote{Pipeline} پردازنده، حافظه نهان و دستگاه‌های ورودی،خروجی ارائه می‌کند. افزایش سطح دقت و جزئیات می‌تواند منجر به شبیه‌سازی کند‌تر شود، زیرا برای شبیه سازی دقیق سیتم به منابع محاسباتی بیشتری نیاز است.
+		
+		\item \textbf{پیکره‌بندی و پارامترها: }جم۵ به کاربران اجازه می‌دهد تا بخش هایی مانند تعداد هسته، اندازه حافظه نهان و زمان شبیه‌سازی را پیکره‌بندی کند. عملکرد شبیه‌ساز هم می‌تواند تحت تاثیر پیکره‌بندی های انتخاب شده قرار گیرد.
+		
+		\item \textbf{منابع سخت‌افزاری: }عملکرد جم۵ می‌تواند تحت تاثیر سخت افزار دستگاه مورد استفاده قرار گیرد. بنابراین برای شبیه‌سازی سیستم‌های بزرگتر و پیچیده‌تر، ممکن است به حافظه، قدرت پردازش و فضای دیسک بیشتری نیاز باشد. عملکرد را می‌توان با استفاده از سخت افزار قدرت‌مند مانند پردازنده های چند‌هسته ای و حافظه‌های SSD بهبود داد.
+		
+		\item \textbf{تکنیک‌های بهینه‌سازی:‌ }جم۵ از تکنیک‌های بهینه‌سازی مختلفی برای بهبود عملکرد شبیه‌سازی پشتیبانی می‌کند. این تکنیک‌ها شامل Checkpoin و Warmup است که به کاربران این امکان را می‌دهد که شبیه‌سازی را از حالت ذخیره شده قبلی از سر بگیرند. همچنین جم۵ می‌تواند از JIT برای کامپایل پویا کد شبیه‌سازی شده به کد ماشین استفاده کند.	
+	\end{enumerate}
+	
+	
+	
+	\section{مزایا}
+	جم۵ مزایای زیادی دارد که در ادامه به چند مورد از آنها اشاره می‌کنیم:
+	\begin{enumerate}[label=\Roman*.]
+		\item \textbf{متن‌باز بودن: }سورس کد\footnote{می‌توانید آن را از اینجا دانلود کنید: \texttt{\href{https://github.com/gem5/gem5.git}{\textcolor{magenta}{github.com/gem5/gem5.git}}}}
+		آن به صورت رایگان در اختیار عموم قرار دارد و محققان و کاربران آن می‌توانند آن را برحسب نیاز‌های خود تغییر دهند و شخصی سازی کنند.
+		
+		\item \textbf{پشتیبانی از معماری گسترده: }جم۵ از طیف وسعی از پردازنده ها پشتیبانی می‌کند و این امر تطبیق پذیری آن را برای شبیه‌سازی سیستم‌ها و معماری‌های مختلف کامپیوتری مناسب می‌کند.
+		
+		\item \textbf{ماژولار بودن: }جم۵ به صورت ماژولار طراحی شده است. یعنی به کاربران این اجازه را می‌دهد که به راحتی اجزا یا مدلی را اضافه یا تغییر دهند. 
+		
+		\item \textbf{مدل‌سازی دقیق سیستم}
+		
+		\item \textbf{انعطاف‌پذیری در شبیه‌سازی}
+		
+	\end{enumerate}
+	
+	
+	
+	\section{سیستم‌عامل میزبان}
+	جم۵ را می‌توان بر روی سیستم‌عامل های مختلفی مانند ،Linux macOS و Windows اجرا کرد. اجرای جم۵ در Windows به صورت مستقیم امکان‌پذیر نیست و به مراحل اضافی احتیاج دارد مانند استفاده از ماشین مجازی \footnote{Machine Virtual} یا WSL \footnote{Linux for Subsystem Windows} برای ایجاد محیط لینوکس در ویندوز.
+	
+	
+	
+	\section{چگونه نرم‌افزار را اجرا کنیم؟}
+	برای اجرای نرم افزار مراحل زیر را دنبال کنید:
+	\begin{enumerate}
+		\item \textbf{جم۵ را دانلود کنید: }برای دانلود می‌توانید از این
+		\href{https://github.com/gem5/gem5}{\textcolor{magenta}{لینک}} اقدام کنید.
+		
+		\item \textbf{ساخت برنامه: } برای اجرای جم۵ به نرم‌افزار های زیر نیاز دارید: 
+		\begin{itemize}
+			\item g++
+			\item clang
+			\item python
+			\item SCons
+			\item zlib
+			\item m4
+			\item protobuf
+		\end{itemize}
+		برای اطلاعات بیشتر، 
+		\href{https://www.gem5.org/documentation/general_docs/building}{\textcolor{magenta}{اینجا}} را مطالعه کنید.
+		
+		\item \textbf{پیکره‌بندی شبیه‌سازی: }
+		قبل از اجرای شبیه‌سازی باید پیکره‌بندی پارامتر‌های آن را شکل دهیم. یعنی در ابتدای شبیه‌سازی باید پیکره‌بندی سیستم، پردازنده، حافظه‌ها و ... را تعیین کنیم. به طور پیش‌فرض پیکره‌بندی هایی در جم۵ وجود دارد که در صورت نیاز می‌توان آن‌ها را تغییر داد.
+		
+		\item \textbf{اجرای شبیه‌سازی:‌ }
+		پس از انجام مرحله پیکره‌بندی می‌توان با دستور مناسب با پیکره‌بندی انتخاب شده آن را اجرا کرد. این دستور معمولا شامل مسیر باینری جم۵ و مسیر فایل پیکره‌بندی است. به عنوان مثال، در لینوکس از دستور زیر استفاده می‌شود:
+		
+		\begin{latin}
+			\texttt{./gem5.opt --options=config\_file.py}
+		\end{latin}
+		
+		
+		\item \textbf{نظارت و تجزیه و تحلیل خروجی: }
+		پس از اجرای شبیه‌سازی می‌توان خروجی سیستم را بسته با پیکر‌بندی انتخاب شده و اطلاعات مورد نیاز از شبیه‌سازی بررسی و تجزیه و تحلیل کرد.
+		
+		\item \textbf{پس‌پردازش و تجسم: }جم۵ اسکریپت هایی را برای پردازش فایل‌های خروجی تولید شده و تولید گزارش و نمودار برای تجزیه و تحلیل بیشتر در اختیار کاربران می‌گذارد. این ابزار به ما این امکان را می‌دهد تا اطلاعات خاص را استخراج کرده و نتایج را به راحتی تجسم کنیم.
+		
+	\end{enumerate}
+\end{multicols}
+
+
+\end{document}
