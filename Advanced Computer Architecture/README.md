@@ -26,4 +26,4 @@ Read tutorial [here](https://github.com/rezaAdinepour/M.Sc-AUT/tree/main/Advance
 | 2 | 7/21 - 8/5 | 8/15 - 8/22 | 8/14 |
 | 3 | 8/19 - 9/17 | 8/30 - 9/7 | 8/28 |
 | 4 | 9/24 - 10/8 | 9/14 - 9/21 | 9/12 |
-| 5 | - | - | 9/26 |
+| 5 | - | - | [9/26](https://github.com/rezaAdinepour/M.Sc-AUT/tree/main/Advanced%20Computer%20Architecture/Quiz/Quiz%204) |
