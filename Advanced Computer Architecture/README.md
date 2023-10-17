@@ -22,7 +22,7 @@ Read tutorial [here](https://github.com/rezaAdinepour/M.Sc-AUT/tree/main/Advance
 ### Time Table
 | Row | Computer Assignment | Theory Assignment | Quiz |
 | --- | :-:  | :-: | :-: |  
-| 1 | ~~7/8 - 7-15~~ | 8/1 - 8/12 | [~~7/25~~](https://github.com/rezaAdinepour/M.Sc-AUT/tree/main/Advanced%20Computer%20Architecture/Quiz/Quiz%201) |
+| 1 | [~~7/8 - 7-15~~](https://github.com/rezaAdinepour/M.Sc-AUT/tree/main/Advanced%20Computer%20Architecture/HWs/Simulation/HW01) | 8/1 - 8/12 | [~~7/25~~](https://github.com/rezaAdinepour/M.Sc-AUT/tree/main/Advanced%20Computer%20Architecture/Quiz/Quiz%201) |
 | 2 | 7/21 - 8/5 | 8/15 - 8/22 | 8/14 |
 | 3 | 8/19 - 9/17 | 8/30 - 9/7 | 8/28 |
 | 4 | 9/24 - 10/8 | 9/14 - 9/21 | 9/12 |
