@@ -1,5 +1,5 @@
 ### Quiz Key:
-| Question | Solution | | Student ID | From 10 | 
+| Question | Solution | Student ID | From 10 | 
 | :-: | :-: | :-: | :-:  | 
 | 1 | d |
 | 2 | c |
