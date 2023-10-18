@@ -1,4 +1,4 @@
-### Quiz Key:
+### Quiz Key & Scores:
 | Question | Solution | Student ID | From 10 | 
 | :-: | :-: | :-: | :-:  | 
 | 1 | d | 402131034 | 7 |
@@ -14,7 +14,3 @@
 | - | - | 402131059 | 8 |
 | - | - | 402131060 | 9 |
 | - | - | 402131044 | 8 |
-
-### Scores:
-| Student ID | From 10 | 
-| :-: | :-:  | 
