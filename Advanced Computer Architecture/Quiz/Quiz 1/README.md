@@ -1,6 +1,6 @@
 ### Quiz Key:
-| Question | Solution | 
-| :-: | :-:  | 
+| Question | Solution | | Student ID | From 10 | 
+| :-: | :-: | :-: | :-:  | 
 | 1 | d |
 | 2 | c |
 | 3 | c |
