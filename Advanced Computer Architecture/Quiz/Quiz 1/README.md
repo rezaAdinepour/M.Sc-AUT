@@ -1,5 +1,5 @@
 ### Quiz Key & Scores:
-| Question | Solution | Student ID | From 10 | 
+| Question | Solution | Student ID | Score (From 10) | 
 | :-: | :-: | :-: | :-:  | 
 | 1 | d | 402131034 | 7 |
 | 2 | c | 402131036 | 8 |
