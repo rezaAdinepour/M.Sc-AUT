@@ -4,7 +4,7 @@
 ### E-mail: [sajavadi@aut.ac.ir](mailto:sajavadi@aut.ac.ir)
 
 ### Reference:
-A. Silberschatz, P. Galvin, & G. Gagne, *Operating System Concepts,* 10th Edition, Wiley publishing, 2018 ([find here](https://github.com/rezaAdinepour/M.Sc-AUT/tree/main/Operating Systems/Reference))
+A. Silberschatz, P. Galvin, & G. Gagne, *Operating System Concepts,* 10th Edition, Wiley publishing, 2018 ([find here](https://github.com/rezaAdinepour/M.Sc-AUT/tree/main/Operating%20Systems/Reference))
  
 ### Scores:
 | Section | Score | Considerations |
