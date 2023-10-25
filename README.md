@@ -14,7 +14,7 @@
 | 6 | CE5406 | Distributed Systems |
 | 7 | CE5407 | Dependable Systems Design |
 | 8 | - | [Seminar](https://github.com/rezaAdinepour/M.Sc-AUT/tree/main/Seminar) |
-| 9 | CE203 | [Operating Systems](https://github.com/rezaAdinepour/M.Sc-AUT/tree/main/Seminar) |
+| 9 | CE203 | [Operating Systems](https://github.com/rezaAdinepour/M.Sc-AUT/tree/main/Operating%20Systems) |
 
 ### Group 2:
 | Row  | Course ID |  Course Name |
