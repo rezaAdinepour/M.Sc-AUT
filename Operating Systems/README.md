@@ -14,4 +14,4 @@ A. Silberschatz, P. Galvin, & G. Gagne, *Operating System Concepts,* 10th Editio
 | Project | 5.5 | In Three Phases |
 | Final Exam | 8 | 1402/3/30 |
 | Technical Presentation | 1 | Topics Are Raised During The Lectures |
-| Total | 23 | Good luck 😄: |
+| Total | 23 | Good luck 😄 |
