@@ -1,0 +1,43 @@
+\documentclass[12pt]{article}
+\usepackage{blindtext}
+\usepackage[bordered]{uni-style}
+\usepackage{uni-math}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{color,soul}
+\usepackage{wrapfig}
+\usepackage{capt-of}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{gray}{\parbox{\textwidth}{#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
+\usepackage{tikz}
+
+
+\title{سیستم‌های عامل}
+\prof{دکتر جوادی}
+% \subtitle{latex and documents}
+\subject{تمرین سری اول}
+\info{
+    \begin{tabular}{lr}	
+        \href{github.com/rezaAdinepour/M.Sc-AUT/tree/main/Operating Systems}{\textcolor{black}{رضا آدینه پور}} & 402131055\\
+    \end{tabular}
+}
+\date{\today}
+\department{دانشکده مهندسی کامپیوتر}
+
+\usepackage[final]{pdfpages}
+
+\usepackage{xepersian}
+\settextfont{XBYas}
+
+\begin{document}
+\maketitlepage
+\maketitlestart
+\foreach \x in {1,2,...,6}{
+    \input{questions/Q\x.tex}
+    \clearpage
+}
+\end{document}
