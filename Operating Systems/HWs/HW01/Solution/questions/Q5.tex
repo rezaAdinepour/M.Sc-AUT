@@ -1,0 +1,170 @@
+\section{به سوالات زیر پاسخ کامل دهید}
+
+الف) قطعه کد زیر را درنظر بگیرید:
+
+\begin{latin}
+\begin{lstlisting}[label=first,caption=Some Code, language=C]
+
+int(main)
+{
+	int count = 0;
+	pid_t ret = fork;
+	if(ret == 0)
+		printf("count in child = %d \n", count)
+	else
+		count = 1;
+		
+	return0;
+}
+
+\end{lstlisting}
+\end{latin}
+
+
+
+
+اگر والد دستور \texttt{1 = count} را قبل از اجرای فرزند برای اولین بار اجرا می‌کند، مشخص کنید مقدار چاپ شده توسط کد بالا چقدر است؟ توضیح دهید.
+
+\begin{qsolve}
+با توجه به قطعه کد داده شده، اگر والد دستور \texttt{1 = count} را ‫قبل‬ ‫از‬ ‫اجرای‬ ‫فرزند‬ ‫برای‬ ‫اولین‬ ‫بار‬ ‫اجرا‬ ‫کند،‬ مقدار چاپ شده توسط کد بال به صورت \texttt{0 = child in count} خواهد بود. 
+	
+در ابتدا، متغیر \texttt{count} به مقدار \texttt{0} مقداردهی می‌شود. سپس با استفاده از \texttt{fork()}، یک فرآیند فرزند ایجاد می‌شود و ارزش بازگشتی \texttt{fork()} به متغیر ret اختصاص داده می‌شود. اگر \texttt{ret} برابر با \texttt{0} باشد، به این معنی است که کد در حال اجرا در فرآیند فرزند است. در این حالت، دستور
+\begin{latin}
+	\texttt{printf("count in child = \%d \textbackslash n", count)}
+\end{latin}
+اجرا می‌شود و مقدار \texttt{count} که در فرآیند فرزند است هنوز تغییر نکرده و برابر با \texttt{0} است.
+
+اما اگر \texttt{ret} مقدار دیگری غیر از \texttt{0} داشته باشد، به این معنی است که کد در حال اجرا در فرآیند والد است. در این حالت، دستور \texttt{1 = count} اجرا می‌شود و مقدار \texttt{count} تغییر کرده و برابر با \texttt{1} می‌شود. اما هیچ دستوری برای چاپ مقدار \texttt{count} در فرآیند والد وجود ندارد.
+\end{qsolve}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ب) باتوجه به پردازه‌های Zombie و Orphan به سوالات زیر پاسخ دهید:
+\begin{enumerate}
+	\item توضیح دهید که هرکدام از این پردازه ها چگونه ایجاد می‌شوند و تفاوت آنها با یکدیگر چیست؟
+	\begin{qsolve}
+		\begin{enumerate}
+			\item \textbf{Orphan: }
+			\begin{enumerate}
+				\item وقتی یک فرآیند والد خود را قبل از اتمام یا خروج از برنامه ببندد، فرزندانش به عنوان پردازه‌های orphan به شمار می‌روند. پردازه‌های orphan در واقع پردازه‌هایی هستند که والدشان قبل از اتمام خود زنده نمی‌ماند و آن‌ها بدون والد باقی می‌مانند.
+				\item در این حالت، سیستم عامل پردازه‌های orphan را به عهده می‌گیرد و آن‌ها را به یک پردازه والد جدید انتقال می‌دهد. پردازه جدید به عنوان والد جایگزین برای آن‌ها عمل می‌کند.
+			\end{enumerate}
+			\item \textbf{Zombie: }
+			\begin{enumerate}
+				\item وقتی یک فرآیند فرزند خود را قبل از والدش ببندد و اجرای خود را به پایان برساند، به عنوان یک پردازه zombie باقی می‌ماند.
+				\item در این وضعیت، پردازه فرزند اجرا خود را به پایان رسانده است ولی والد هنوز آن را با استفاده از سیستم \texttt{wait()} یا \texttt{waitpid()} به صورت صحیح تمام نکرده است.
+				\item پس از اتمام عملیات والد، سیستم عامل پردازه zombie را از جدول پردازه‌ها حذف می‌کند و منابع آن را آزاد می‌کند.
+			\end{enumerate}
+		\end{enumerate}
+	\end{qsolve}
+	
+	
+	
+	\item باتوجه به قطعه کد‌های زیر برای هر مورد مشخص کنید که بین Orphan و Zambie چه پردازه ای ایجاد می‌شود و جواب خود را به طور کامل توضیح دهید.
+\end{enumerate}
+\begin{latin}
+\begin{lstlisting}[label=first,caption=Some Code, language=C]
+
+int(main)
+{
+	pid_t pid = fork;
+	if(pid == 0)
+	{
+		printf("child process with pid %d ", getpid());
+		exit(0);
+	}
+	else
+	{
+		printf("parent process with pid %d ", getpid());
+		sleep(60);
+	}
+	
+	return0;
+}
+
+\end{lstlisting}
+\end{latin}
+
+\begin{qsolve}
+\begin{enumerate}
+	\item \textbf{Orphan:}
+	\begin{enumerate}
+		\item در این قطعه کد، پردازه فرزند \texttt{0 == pid} اجرا می‌شود و پردازه والد \texttt{0 != pid} منتظر می‌ماند. به عبارت دیگر، در صورتی که پردازه والد قبل از اتمام پردازه فرزند بسته شود، پردازه فرزند به عنوان یک پردازه orphan باقی می‌ماند.
+		\item در این حالت، پردازه فرزند پیام \texttt{"[pid] pid with process child"} را چاپ می‌کند و سپس با استفاده از \texttt{exit(0)} به پایان می‌رسد.
+	\end{enumerate}
+	\item \textbf{Zombie:}
+	\begin{enumerate}
+		\item در این قطعه کد، پردازه والد \texttt{0 != pid} در حالت انتظار \texttt{sleep(60)} قرار دارد و پردازه فرزند \texttt{0 == pid} اجرا می‌شود.
+		\item پس از اجرای پردازه فرزند، پیام \texttt{"[pid] pid with process child"} چاپ می‌شود.
+		\item والد در حال انتظار است و در این مدت، پردازه فرزند به پایان می‌رسد و به عنوان یک پردازه \texttt{zombie} باقی می‌ماند.
+		\item پس از گذشت زمان \texttt{sleep(60)}، والد همچنان اجرا می‌شود و پردازه \texttt{zombie} نهایتاً توسط سیستم عامل از جدول پردازه‌ها حذف می‌شود.
+	\end{enumerate}
+\end{enumerate}
+\end{qsolve}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{latin}
+\begin{lstlisting}[label=first,caption=Some Code, language=C]
+
+int(main)
+{
+	pid_t pid = fork;
+	if(pid > 0)
+		printf("parent process");
+	else
+	{
+		sleep(60);
+		printf("child process");
+	}
+	
+	return0;
+}
+
+\end{lstlisting}
+\end{latin}
+
+\begin{qsolve}
+	\begin{enumerate}
+		\item \textbf{Orphan:}
+		\begin{enumerate}
+			\item در این قطعه کد، پردازه والد \texttt{0 > pid} پیام \texttt{process parent} را چاپ می‌کند و پردازه فرزند \texttt{0 == pid} به قسمت else وارد می‌شود. پس از ورود به قسمت \texttt{else}، پردازه فرزند از طریق \texttt{sleep(60)} به مدت \texttt{60} ثانیه منتظر می‌ماند و سپس پیام \texttt{process child} را چاپ می‌کند.
+			\item در این حالت، پردازه والد به عنوان یک پردازه زنده باقی می‌ماند و پردازه فرزند نیز در زمان اجرا زنده است. بنابراین، هیچ پردازه \texttt{orphan} ایجاد نمی‌شود.
+		\end{enumerate}
+		\item \textbf{Zombie:}
+		\begin{enumerate}
+			\item در این قطعه کد، پردازه والد \texttt{0 > pid} پیام \texttt{process parent} را چاپ می‌کند و پردازه فرزند \texttt{0 == pid} به قسمت \texttt{else} وارد می‌شود.
+			\item پس از ورود به قسمت \texttt{else}، پردازه فرزند با استفاده از \texttt{sleep(60)} به مدت \texttt{60} ثانیه منتظر می‌ماند و سپس پیام \texttt{prcess child} را چاپ می‌کند.
+			\item پس از اجرای پردازه فرزند، والد \texttt{0 > pid} همچنان در حال اجراست اما هیچ فعالیتی بر روی پردازه فرزند ندارد. اگر پردازه فرزند قبل از اتمام والد بسته شود، پردازه فرزند به عنوان یک پردازه \texttt{zombie} باقی می‌ماند.
+			\item در این حالت، پردازه والد پس از گذشت زمان \texttt{sleep(60)} به پایان می‌رسد و پردازه \texttt{zombie} توسط سیستم عامل از جدول پردازه‌ها حذف می‌شود.
+		\end{enumerate}
+	\end{enumerate}
+\end{qsolve}

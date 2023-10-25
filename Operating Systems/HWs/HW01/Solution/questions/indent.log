@@ -1,0 +1,31 @@
+INFO:  latexindent.pl version 3.18, 2022-06-12, a script to indent .tex files
+       latexindent.pl lives here: C:/Users/borna/AppData/Local/Programs/MiKTeX/scripts/latexindent/
+       Thu Jun  8 21:59:54 2023
+       Filename: c:\Users\borna\OneDrive\Documents\uni-borna\signals and systems\PS7\questions\Q4.tex
+INFO:  Processing switches:
+INFO:  Directory for backup files and indent.log:
+       c:\Users\borna\OneDrive\Documents\uni-borna\signals and systems\PS7\questions
+INFO:  Perl modules are being loaded from the following directories:
+       C:/Strawberry/perl/lib/FindBin.pm
+       C:/Strawberry/perl/vendor/lib/YAML/Tiny.pm
+       C:/Strawberry/perl/lib/File/Copy.pm
+       C:/Strawberry/perl/lib/File/Basename.pm
+       C:/Strawberry/perl/lib/Getopt/Long.pm
+       C:/Strawberry/perl/vendor/lib/File/HomeDir.pm
+INFO:  LatexIndent perl modules are being loaded from, for example:
+       C:/Users/borna/AppData/Local/Programs/MiKTeX/scripts/latexindent/LatexIndent/Document.pm
+INFO:  YAML settings read: defaultSettings.yaml
+       Reading defaultSettings.yaml from C:/Users/borna/AppData/Local/Programs/MiKTeX/scripts/latexindent/defaultSettings.yaml
+INFO:  YAML settings read: indentconfig.yaml or .indentconfig.yaml
+       Home directory is C:\Users\borna (didn't find either indentconfig.yaml or .indentconfig.yaml)
+       To specify user settings you would put indentconfig.yaml here: C:\Users\borna/indentconfig.yaml
+       Alternatively, you can use the hidden file .indentconfig.yaml as: C:\Users\borna/.indentconfig.yaml
+INFO:  Phase 1: searching for objects
+INFO:  Phase 2: finding surrounding indentation
+INFO:  Phase 3: indenting objects
+INFO:  Phase 4: final indentation check
+INFO:  Output routine:
+       Not outputting to file; see -w and -o switches for more options.
+       --------------
+INFO:  Please direct all communication/issues to:
+        https://github.com/cmhughes/latexindent.pl

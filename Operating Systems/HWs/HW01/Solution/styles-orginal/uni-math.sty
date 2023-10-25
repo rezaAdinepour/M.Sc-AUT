@@ -1,0 +1,24 @@
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+
+\newcommand{\barthrough}{\hspace*{-0.08em}\bar{}\hspace*{0.1em}}
+\newcommand{\dbar}{d\barthrough}
+\newcommand{\deriv}[3][]{\frac{\mathrm{d}^{#1}#2}{\mathrm{d}#3^{#1}}}
+\newcommand{\derivv}[3][]{\deriv[#1]{}{#3}\left(#2\right)}
+\newcommand{\pderiv}[3][]{\frac{\partial^{#1}#2}{\partial#3^{#1}}}
+\newcommand{\pderivv}[3][]{\pderiv[#1]{}{#3}\left(#2\right)}
+\newcommand{\fourier}[2][t]{\int_{-\infty}^{\infty}#2 e^{-j\omega #1}d#1}
+\newcommand{\blaplace}[2][t]{\int_{-\infty}^{\infty}#2e^{-s#1}d#1}
+\newcommand{\ulaplace}[2][t]{\int_{0}^{\infty}#2e^{-s#1}d#1}
+\newcommand{\ifourier}[2][t]{\frac{1}{2\pi}\int_{-\infty}^{\infty}#2 e^{j\omega #1}d\omega}
+\newcommand{\letm}{\text{let:}\ }
+\newcommand{\when}{\Big|}
+\newcommand{\convolve}[3][t]{\int_{-\infty}^{\infty}#2(\tau)#3(#1-\tau)d\tau}
+\newcommand{\donvolve}[3][k]{\sum_{k=-\infty}^{\infty}#2[k]#3[#1-k]}
+\newcommand{\intinf}{\int_{-\infty}^{\infty}}
+\newcommand{\real}[1]{\mathbf{Re}\{#1\}}
+\newcommand{\imag}[1]{\mathbf{Imag}\{#1\}}
+\newcommand{\order}[1]{\mathcal{O}\left(#1\right)}
+\newcommand{\sinc}{\text{sinc}}
+
+\newenvironment{lcases}{\left.\begin{array}{ll}}{\end{array}\right\}}

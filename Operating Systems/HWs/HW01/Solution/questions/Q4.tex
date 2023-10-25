@@ -1,0 +1,262 @@
+\section{خروجی قطعه کد‌های داده شده چیست؟ درخت پردازه‌های هر برنامه را رسم و راه‌حل خود را توضیح دهید.}
+
+
+
+
+\begin{latin}
+\begin{lstlisting}[label=first,caption=Some Code, language=C]
+	
+int(main)
+{
+	int i;
+	for(i = 0; i < 3; ++i)
+		fork();
+	printf("Hello\n");
+	return0;
+}
+
+\end{lstlisting}
+\end{latin}
+
+\begin{qsolve}
+	خروجی کد به صورت زیر است:
+	\begin{latin}
+		\texttt{Hello}\\
+		\texttt{Hello}\\
+		\texttt{Hello}\\
+		\texttt{Hello}\\
+		\texttt{Hello}\\
+		\texttt{Hello}\\
+		\texttt{Hello}\\
+		\texttt{Hello}\\
+	\end{latin}
+	
+	در این کد، یک حلقه \texttt{for} وجود دارد که سه بار تکرار می‌شود. در هر تکرار، تابع \texttt{fork()} فراخوانی می‌شود. تابع \texttt{fork()} یک پردازه جدید را ایجاد می‌کند که از پردازه فعلی تولید شده است، به طوری که حالت اجرای برنامه پس از این نقطه در هر دو پردازه ادامه می‌یابد. بنابراین، در هر تکرار حلقه، تعداد پردازه‌ها دو برابر می‌شود.
+	
+در نتیجه، در این برنامه اصلی، ابتدا یک پردازه ایجاد می‌شود. در تکرار اول حلقه، یک پردازه دیگر ایجاد می‌شود و در نتیجه تعداد پردازه‌ها دو می‌شود. در تکرار دوم حلقه، هر یک از دو پردازه قبلی یک پردازه دیگر ایجاد می‌کنند و تعداد پردازه‌ها چهار می‌شود. در تکرار سوم حلقه، هر یک از چهار پردازه قبلی یک پردازه دیگر ایجاد می‌کنند و تعداد پردازه‌ها هشت می‌شود.
+پس از اتمام حلقه \texttt{for}، هر یک از هشت پردازه تولید شده عبارت \texttt{"Hello"} را چاپ می‌کند. بنابراین، در خروجی نهایی، عبارت \texttt{"Hello"} ۸ بار چاپ می‌شود.
+
+درخت پردازش برای این برنامه به صورت زیر است:
+
+
+\begin{center}
+	\begin{tikzpicture}[level/.style={sibling distance=40mm/#1}]
+		\node {P}
+		child {node {P}
+			child {node {P}
+				child {node {P}}
+				child {node {P}}
+			}
+			child {node {P}
+				child {node {P}}
+				child {node {P}}
+			}
+		}
+		child {node {P}
+			child {node {P}
+				child {node {P}}
+				child {node {P}}
+			}
+			child {node {P}
+				child {node {P}}
+				child {node {P}}
+			}
+		};
+	\end{tikzpicture}
+\end{center}
+\end{qsolve}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{latin}
+\begin{lstlisting}[label=first,caption=Some Code, language=C]
+	
+int(main)
+{
+	if(fork() && fork())
+	{
+		fork();
+		fork();
+	}
+	printf("A");
+	return0;
+}
+	
+\end{lstlisting}
+\end{latin}
+
+\begin{qsolve}
+خروجی کد به صورت زیر است:
+
+\begin{latin}
+	\texttt{AAAA}
+\end{latin}
+در این برنامه، تابع \texttt{fork()} برای ایجاد پردازه‌های جدید استفاده می‌شود. با استفاده از این تابع، پردازه‌های فرزند از پردازه فعلی تولید می‌شوند.
+حلقه شرطی \begin{latin}
+	\texttt{if(fork() \&\& fork())}
+\end{latin}
+باعث ایجاد چهار پردازه فرزند می‌شود. در اینجا، ابتدا یک پردازه فرزند ایجاد می‌شود و سپس دو پردازه فرزند از هر یک از پردازه‌های فرزند قبلی تولید می‌شوند. بنابراین، در نهایت، تعداد کل پردازه‌ها به چهار می‌رسد.
+سپس در داخل حلقه دوباره \texttt{fork()} فراخوانی می‌شود که باعث تولید چهار پردازه فرزند دیگر می‌شود. در نتیجه، تعداد کل پردازه‌ها به هشت می‌رسد.
+در نهایت، در همه‌ی پردازه‌ها، عبارت \texttt{"A"} چاپ می‌شود. بنابراین، خروجی نهایی برنامه \texttt{"AAAA"} خواهد بود.
+
+درخت پردازش برای این برنامه به صورت زیر است:
+\begin{center}
+	\begin{tikzpicture}[level/.style={sibling distance=60mm/#1}]
+		\node {P}
+		child {node {P}
+			child {node {P}
+			}
+			child {node {P}
+			}
+		}
+		child {node {P}
+			child {node {P}
+			}
+			child {node {P}
+			}
+		};
+	\end{tikzpicture}
+\end{center}
+\end{qsolve}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{latin}
+\begin{lstlisting}[label=first,caption=Some Code, language=C]
+
+int(main)
+{
+	int i = 2;
+	while(i > 0)
+	{
+		i--;
+		if(fork())
+		{
+			fork();
+			printf("B");
+		}
+	}
+	return0;	
+}
+
+\end{lstlisting}
+\end{latin}
+
+\begin{qsolve}
+در این برنامه حلقه بی‌نهایت وجود دارد و خروجی برنامه شامل بی‌نهایت عبارت \texttt{B} است. به دلیل این که هر بار که \texttt{fork()} فراخوانی می‌شود، تعداد پردازه‌ها دو برابر می‌شود، درخت پردازه‌ها بسیار پیچیده و حجیم خواهد شد. درخت ممکن است به طور نمایی رشد کند و نمی‌توان آن را به صورت کامل رسم کرد.
+
+در شکل زیر درخت پردازه را صرفا برای دور اول حلقه آورده ایم:
+
+\begin{center}
+	\begin{tikzpicture}[level/.style={sibling distance=60mm/#1}]
+		\node {P}
+		child {node {P}
+			child {node {P}
+			}
+			child {node {P}
+			}
+		}
+		child {node {P}
+			child {node {P}
+			}
+			child {node {P}
+			}
+		};
+	\end{tikzpicture}
+\end{center}
+\end{qsolve}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{latin}
+\begin{lstlisting}[label=first,caption=Some Code, language=C]
+
+int(main)
+{
+	if(fork() || fork() && fork())
+	{
+		fork();
+		print("C")
+	}
+	return0;
+}
+
+\end{lstlisting}
+\end{latin}
+
+\begin{qsolve}
+	خروجی کد به صورت زیر است:
+	
+	\begin{latin}
+		\texttt{CCCC}
+	\end{latin}
+	
+	با توجه به شرط در عبارت شرطی، اگر حداقل یکی از دو \texttt{fork()} اولیه موفق باشد (یعنی یک فرآیند فرزند ایجاد شود)، عبارت داخل \texttt{if} اجرا خواهد شد.
+	
+	درخت پردازش برای این برنامه به صورت زیر است:
+	
+	\begin{center}
+		\begin{tikzpicture}
+			\node{P}
+				child {node {P}
+					child {node {P}}
+					child {node {P}}
+				}
+			child {node {P}}
+			child {node {P}};
+		\end{tikzpicture}
+	\end{center}
+	
+\end{qsolve}

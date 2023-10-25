@@ -1,0 +1,80 @@
+\ProvidesPackage{uni-title}[2023/02/23 ...]
+
+\newif\if@myborder\@myborderfalse
+\DeclareOption{bordered}{\@mybordertrue}
+\DeclareOption*{\OptionNotUsed}
+\ProcessOptions\relax
+
+\newcommand{\myborder}{}
+\RequirePackage{tikz}
+\if@myborder
+    \renewcommand{\myborder}{%
+        \begin{tikzpicture}[remember picture,overlay]
+            \definecolor{sharif}{HTML}{07357A}
+            \clip (current page.north west) rectangle ($(current page.north east)+(0,-0.7)$);
+            \foreach \x in {-9,-6.3,...,27}{
+                    \draw[sharif, line width=0.6cm, rotate=-45] (\x,-\paperheight) -- ++(0,2*\paperheight);
+                    \draw[blue!30!lightgray,line width=0.6cm, rotate=-45] (\x+1.35,-\paperheight) -- ++(0,2*\paperheight);
+                }
+        \end{tikzpicture}
+    }
+\fi
+
+\RequirePackage{graphicx}
+\newcommand{\maketitlepage}{
+    \begin{titlepage}
+        \myborder
+        \begin{center}
+            \vspace*{0.5cm}
+            \Huge
+            \textbf{\@title\\}
+            \huge
+            \@prof\\
+            \vspace*{4em}
+            \LARGE
+            \includegraphics[width = 0.4\textwidth]{\@logo}\\
+            \@department\\
+            \vfill
+            \vspace*{0.3cm}
+            \begin{center}
+                \Large
+                \@info
+            \end{center}
+            \vspace*{0.3cm}
+            \Large
+            \@subject\\
+            \@subtitle\\
+            \vspace*{0.3cm}
+            \@mydate\\
+        \end{center}
+    \end{titlepage}
+}
+
+\newcommand{\maketitlestart}{
+    \noindent
+    {\centering
+        \begin{minipage}{0.85\textwidth}
+            {\Huge\bfseries\@title}\par \vspace{0.1em}
+            \footnotesize{\@subject}\\
+            \vfill
+            \@info\\[1em]
+            % \@subtitle\\
+        \end{minipage}% PUT THIS HERE!
+        \begin{minipage}{0.15\textwidth}
+            \includegraphics[width=\linewidth,keepaspectratio]{\@logotwo}
+            % \\\@department
+            \vspace{0.1em}
+        \end{minipage}
+        \noindent\rule{0.98\textwidth}{1pt}\\[1em]
+        \medskip
+        \pagestyle{normalpage}
+        \thispagestyle{firstpage}
+    }
+}
+
+\newcommand{\makeendpage}{
+    \vfil
+    \begin{center}
+        \Huge{\@End\ \@subject}
+    \end{center}
+}
