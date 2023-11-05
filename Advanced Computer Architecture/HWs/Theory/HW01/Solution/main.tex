@@ -1,0 +1,60 @@
+%           ******************************************************
+%          **   course         : Advanced Computer Architecture  **
+%         ***   HomeWork       : 01                              ***
+%        ****   Topic          : Introduction                    ****
+%        ****   AUTHOR         : Reza Adinepour                  ****
+%         ***   Student ID:    : 402131055                       ***
+%          **   Github         : github.com/rezaAdinepour/       **
+%           ******************************************************
+
+
+\documentclass[12pt]{article}
+\usepackage{blindtext}
+\usepackage[bordered]{uni-style}
+\usepackage{uni-math}
+\usepackage{pgfplots}
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+\pgfplotsset{compat=1.18}
+\usepackage{color,soul}
+\usepackage{wrapfig}
+\usepackage{capt-of}
+\usepackage[utf8]{inputenc}
+\usepackage{fourier} 
+\usepackage{array}
+\usepackage{makecell}
+\usepackage{soul}
+\newcommand{\mathcolorbox}[2]{\colorbox{#1}{$\displaystyle #2$}}
+
+\renewcommand\theadalign{bc}
+\renewcommand\theadfont{\bfseries}
+\renewcommand\theadgape{\Gape[4pt]}
+\renewcommand\cellgape{\Gape[4pt]}
+
+
+
+\title{معماری کامپیوتر پیشرفته}
+\prof{دکتر فربه}
+% \subtitle{latex and documents}
+\subject{تمرین تئوری سری اول}
+\info{
+    \begin{tabular}{lr}
+        \href{https://github.com/rezaAdinepour/M.Sc-AUT/tree/main/Advanced Computer Architecture}{\textcolor{black}{رضا آدینه پور}} & 402131055\\
+    \end{tabular}
+}
+\date{\today}
+\department{دانشکده مهندسی کامپیوتر}
+
+%\usepackage[final]{pdfpages}
+
+\usepackage{xepersian}
+\settextfont{XBYas}
+
+\begin{document}
+\maketitlepage
+\maketitlestart
+\foreach \x in {1,2,3,4}{
+    \input{questions/Q\x.tex}
+    \vfil
+}
+\end{document}

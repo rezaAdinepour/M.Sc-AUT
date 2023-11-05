@@ -1,0 +1,82 @@
+\section{سوال اول}
+
+عوامل زیادی در قیمت تراشه کامپیوتر دخیل هستند. اینتل ۷ میلیون دلار برای تکمیل تاسیسات ساخت 42 Fab خود برای فناوری ۷ نانومتری هزینه می‌کند. در اینجا ما یک شرکت فرضی را در شرایط مشابه بررسی می‌کنیم و اینکه چگونه تصمیم‌های طراحی متفاوت شامل فناوری ساخت، منطقه و افزونگی بر هزینه تراشه‌ها تاثیر می‌گذارد.
+\begin{enumerate}
+	\item Yield تراشه Phonix چقدر است؟
+	\begin{qsolve}
+		\begin{equation}
+			Yield_{Fonix} = \frac{1}{(1 + (0.04 \times 2))^{14}} = 0.34
+		\end{equation}
+	\end{qsolve}
+	\item چرا ،Phonix Rate Defect بالاتری نسبت به BlueDragon دارد؟
+	\begin{qsolve}
+چون پردازنده Phonix جدیدتر و با تکنولوژی ساخت کوچکتری نسبت به BlueDragon ساخته می‌شود. طبیعیست پردازنده ای که عمر ساخت کوتاه تری داد دچار مشکلات و نقص های جزپی باشد. پردازنده BlueDragon از این جهت تمامی تست های خودش را انجام داده و در گذر زمان به مرور مشکلاتی آن رفع شده است پس Rate Defect بالا‌تری دارد نسبت به Phonix.
+	\end{qsolve}
+\end{enumerate}
+
+آن‌ها طیف وسیعی از تراشه‌های آن کارخانه را می‌فروشند و باید تصمیم بگیرند که چه مقدار ظرفیت را به هر تراشه اختصاص دهند. تصور کنید که آنها دو تراشه می‌فروشند. Phonix یک معماری کاملا جدید است که با فناوری ۷ نانومتری طراحی شده است. درحالی که ReadDragon همان معماری ۱۰ نانومتری BlueDragon است. تصور کنید که ReadDragon به ازای هر تراشه بدون نقص ۱۵ دلار سود خالص داشت. Phonix به ازای هر تراشه بدون نقص ۳۰ دلار سود خواهد داشت. قطر هر ویفر ۴۵۰ میلی‌متر است.
+
+\begin{enumerate}
+	\item از هر ویفر از تراشه‌های Phonix چقدر سود می‌کنید؟
+	\begin{qsolve}
+مقدار سود برحسب هر ویفر به صورت زیر محاسبه می‌شود:
+		\begin{equation}
+			Profit_X = Yield_X \times Dies_X\,(per \ wafer) \times N
+		\end{equation}
+		\begin{equation}
+			Dies_{per \ wafer} = \frac{\pi \times ({\frac{45}{2}})^2 }{2} - \frac{45\pi}{\sqrt{4}} = 795 - 70.7 = 724.3 \simeq 724
+		\end{equation}
+		\begin{equation}
+			Yield_{Fonix} = \frac{1}{(1 + (0.04 \times 2))^{14}} = 0.34
+		\end{equation}
+		\begin{equation}
+			Profit_{Fonix} = 724 \times 0.34 \times 30 =\mathcolorbox{yellow}{7384.80 \$}
+		\end{equation}
+	\end{qsolve}
+	\item از هر ویفر از تراشه‌های RedDragon چقدر سود می‌کنید؟
+	\begin{qsolve}
+مشابه با قبل داریم:
+		\begin{equation}
+			Dies_{per \ wafer} = \frac{\pi \times ({\frac{45}{2}})^2 }{2} - \frac{45\pi}{\sqrt{2\times 1.2}} = 1325 - 91.25 = 1233.75 \simeq 1234
+		\end{equation}
+		\begin{equation}
+			Yield_{RedDragon} = \frac{1}{(1 + (0.04 \times 1.2))^{14}} = 0.519
+		\end{equation}
+		\begin{equation}
+			Profit_{RedDragon} = 1234 \times 0.519 \times 15 =\mathcolorbox{yellow}{9601.70 \$}
+		\end{equation}
+	\end{qsolve}
+	\item اگر تقاضای شما ۵۰۰۰۰ تراشه RedDragon در ماه و ۲۵۰۰۰ تراشه Phonix در ماه باشد و مرکز شما بتواند ۷۰ ویفر در ماه بسازد، از هر تراشه چند ویفر باید بسازید؟
+
+	\begin{qsolve}
+تعداد ویفر‌های مورد نیاز برای :Phonix
+	\begin{equation}
+		n-Phonix = 25000 \div 724 = \mathcolorbox{yellow}{34.5}
+	\end{equation}
+	
+تعداد ویفر‌های مورد نیاز برای :RedDragon
+	\begin{equation}
+		n-RedDragon = 50000 \div 1234 = \mathcolorbox{yellow}{45.5}
+	\end{equation}
+		 
+	\end{qsolve}
+
+\end{enumerate}
+
+\begin{latin}
+	\begin{center}
+		\begin{tabular}{c c c c c c c c c c} 
+			\hline\hline
+			\textbf{Chip} & \thead{Die Size \\ ($mm^2$)} & \thead{Estimated defect \\rate (per $cm^2$)} & \textbf{N} & \thead{Manufacturing \\ size ($nm$)} & \thead{Transistors \\ (billion)} & \textbf{Cores}\\ [0.5ex] 
+			\hline\hline
+			\textbf{BlueDragon} & 180 & 0.03 & 12 & 10 & 7.5 & 4\\ 
+			\hline
+			\textbf{RedDragon} & 120 & 0.04 & 14 & 7 & 7.5 & 4\\
+			\hline
+			\textbf{Phonix} & 200 & 0.04 & 14 & 7 & 12 & 8 \\ [1ex] 
+			\hline\hline
+		\end{tabular}
+	\end{center}
+\end{latin}
+
+\newpage
