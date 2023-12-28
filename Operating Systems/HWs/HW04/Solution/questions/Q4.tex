@@ -1,0 +1,78 @@
+\section{سوال چهارم}
+
+سیستم زیر را درنظر بگیرید:
+
+\begin{latin}
+	\begin{center}
+		\begin{tabular}{||c| c c |c||} 
+			\hline
+			\thead{All Recourse\\ A B C D} & \thead{Max\\ A B C D} & \thead{Allocation\\ B C D} &  \\ [0.5ex] 
+			\hline\hline
+			3 14 12 12 & 0 0 1 2 & 0 0 1 2 & P0 \\ 
+
+			 & 1 7 5 0 & 1 0 0 0 & P1 \\
+
+			 & 2 3 5 6 & 1 3 5 4 & P2 \\
+
+			 & 0 6 5 2 & 0 6 3 2 & P3 \\
+
+			 & 0 6 5 6 & 0 0 1 4 & P4 \\ [1ex] 
+			\hline
+		\end{tabular}
+	\end{center}
+\end{latin}
+
+
+
+
+\begin{enumerate}
+	\item ماتریس need را تشکیل دهید.
+	\item آیا سیستم در حالت safe قرار دارد؟
+	\item اگر پردازنده P1 درخواست ۰،۲،۴،۰ را بدهد، آیا می‌توان بلافاصله به‌آن پاسخ داد؟
+\end{enumerate}
+
+
+
+
+\begin{qsolve}
+	
+\begin{enumerate}
+	\item ماتریس need به صورت زیر است:
+
+
+\[
+\text{Need} =
+\begin{bmatrix}
+	3 & 14 & 11 & 10 \\
+	1 & 7 & 5 & 0 \\
+	1 & 0 & 0 & 2 \\
+	0 & 0 & 0 & 0 \\
+	0 & 6 & 4 & 2 \\
+\end{bmatrix}
+\]
+
+
+	\item بله سیستم در حالت safe قرار دارد.
+	\[
+	\text{Available} = (0, 0, 1, 2)
+	\]
+
+	\item با توجه به اینکه نیازها از منابع موجود کمتر هستند، درخواست بلافاصله پاسخ داده می‌شود.
+	
+	\[
+	\text{Available} = (0, 0, 1, 2)
+	\]
+	\[
+	\text{Allocation}_{\text{P1}} = (1, 0, 0, 0)
+	\]
+	\[
+	\text{Need}_{\text{P1}} = (0, 7, 5, 0)
+	\]
+\end{enumerate}
+
+\end{qsolve}
+
+
+
+
+

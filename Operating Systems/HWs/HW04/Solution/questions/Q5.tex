@@ -1,0 +1,113 @@
+\section{سوال پنجم}
+
+\begin{enumerate}
+	\item با توجه به ۵ پارتیشن حافظه ۱۰۰ کیلوبایتی، ۵۰۰ کیلوبایتی، ۲۰۰ کیلوبایتی، ۳۰۰ کیلوبایتی و ۶۰۰ کیلوبایتی (به ترتیب) هریک از الگوریتم‌های bestFit و firstFit و worstFit به ترتیب پردازه‌های ۱۱۲، ۴۱۷، ۲۱۲ و ۴۲۶ کیلوبایتی را چگونه قرار می‌دهند و بگویید کدام یک از الگوریتم‌های ذکر شده بهینه‌تر است؟
+	
+	
+	
+	\item با توجه به جدول زیر، آدرس فیزیکی مربوط به آدرس‌های منطقی زیر را به‌دست آورید.
+	
+	\begin{latin}
+		\begin{enumerate}
+			\item 0, 430
+			\item 1, 10
+			\item 2, 500
+			\item 3, 400
+			\item 4, 112
+		\end{enumerate}
+		\begin{center}
+			\begin{tabular}{||c c c||} 
+				\hline
+				Segment & Base & Length \\ [0.5ex] 
+				\hline\hline
+				0 & 219 & 600\\ 
+				
+				1 & 2300 & 14 \\
+				
+				2 & 90 & 100 \\
+				
+				3 & 1327 & 580 \\
+				
+				4 & 1954 & 96 \\ [1ex] 
+				\hline
+			\end{tabular}
+		\end{center}
+	\end{latin}
+	
+\end{enumerate}
+
+
+
+
+
+
+
+\begin{qsolve}
+	
+	\begin{enumerate}
+		\item برای قرار دادن پردازه‌ها با اندازه‌های ۱۱۲، ۴۱۷، ۲۱۲ و ۴۲۶ کیلوبایت در الگوریتم‌های bestFit و firstFit و ،worstFit می‌توان به صورت زیر عمل کرد:
+		
+		
+		\begin{enumerate}
+			\item \textbf{پردازه ۱۱۲ کیلوبایتی:}
+			\begin{enumerate}
+				\item \textbf{:bestFit} بلوک ۱ با بازه بین ۲۰۰ تا ۲۹۹ کیلوبایت
+				\item \textbf{:firstFit} بلوک ۱ با بازه بین ۲۰۰ تا ۲۹۹ کیلوبایت
+				\item \textbf{:worstFit} بلوک ۳ با بازه بین ۴۰۰ تا ۵۹۹ کیلوبایت
+			\end{enumerate}
+			
+			\item \textbf{پردازه ۴۱۷ کیلوبایتی:}
+			\begin{enumerate}
+				\item \textbf{:bestFit} بلوک ۴ با بازه بین ۱۱۲ تا ۲۲۷ کیلوبایت
+				\item \textbf{:firstFit} بلوک ۱ با بازه بین ۲۰۰ تا ۵۹۹ کیلوبایت
+				\item \textbf{:worstFit} بلوک ۳ با بازه بین ۴۰۰ تا ۵۹۹ کیلوبایت
+			\end{enumerate}
+			
+			\item \textbf{پردازه ۲۱۲ کیلوبایتی:}
+			\begin{enumerate}
+				\item \textbf{:bestFit} بلوک ۱ با بازه بین ۲۰۰ تا ۲۹۹ کیلوبایت
+				\item \textbf{:firstFit} بلوک ۱ با بازه بین ۲۰۰ تا ۲۹۹ کیلوبایت
+				\item \textbf{:worstFit} بلوک ۳ با بازه بین ۴۰۰ تا ۵۹۹ کیلوبایت
+			\end{enumerate}
+			
+			\item \textbf{پردازه ۴۲۶ کیلوبایتی:}
+			\begin{enumerate}
+				\item \textbf{:bestFit} بلوک ۵ با بازه بین ۹۶ تا ۱۹۱ کیلوبایت
+				\item \textbf{:firstFit} بلوک ۱ با بازه بین ۲۰۰ تا ۵۹۹ کیلوبایت
+				\item \textbf{:worstFit} بلوک ۳ با بازه بین ۴۰۰ تا ۵۹۹ کیلوبایت
+			\end{enumerate}
+		\end{enumerate}
+	\end{enumerate}	
+\end{qsolve}
+
+
+
+
+
+
+\begin{qsolve}
+	
+	\begin{enumerate}
+		\item برای به‌دست آوردن آدرس فیزیکی مربوط به آدرس‌های منطقی زیر، می‌توانیم از جدول Segment، Base و Length استفاده کنیم:
+		
+			\begin{enumerate}
+				\item \textbf{آدرس منطقی (0, 430):}
+				 آدرس فیزیکی = Base + Offset\\
+				  آدرس فیزیکی = 219 + 430 = 649
+			
+			\item \textbf{آدرس منطقی (1, 10):}
+			 آدرس فیزیکی = 2300 + 10 = 2310
+			 
+			 \item \textbf{آدرس منطقی (2, 500):}
+			  آدرس فیزیکی = 90 + 500 = 590
+			  
+			  \item \textbf{آدرس منطقی (3, 400):}
+			   آدرس فیزیکی = 1327 + 400 = 1727
+			   
+			   \item \textbf{آدرس منطقی (4, 112):}
+				 آدرس فیزیکی = 1954 + 112 = 2066
+			\end{enumerate}
+	\end{enumerate}
+\end{qsolve}
+
+

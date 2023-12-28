@@ -1,0 +1,66 @@
+\section{سوال اول}
+
+چهار پردازه زیر به‌صورت موازی شروع به اجرا می‌کنند، اگر مقدار اولیه هر سمافور غیر باینری مطابق با جدول زیر باشد،‌با ذکر دلیل نشان دهید کدام رشته ها امکان چاپ ندارند و برای رشته‌هایی که امکان چاپ دارند ترتیب اجرای دستورات پردازه را ذکر کنید.
+
+
+\begin{latin}
+\begin{lstlisting}
+P1:              P2:              P3:              P4:
+while(true)      while(true)      while(true)      while(true)
+{                {                {                {
+  wait(s1);        wait(s2);        signal(s3);      wait(s3);
+  print("A");      print("B");      print("C");      print("A");
+  signal(s2);      signal(s3);      wait(s1);        signal(s1);
+  print("B");      print("C");      print("A");      print("B");
+                                                     wait(s2);
+                                                     print("C")
+}                }                }                }
+\end{lstlisting}
+\end{latin}
+
+\begin{latin}
+\begin{lstlisting}
+initial value:
+s1 = 0
+s2 = 0
+s3 = 0
+\end{lstlisting}
+\end{latin}
+
+\begin{enumerate}
+	\item AACBB
+	\item BABAB
+	\item CABAA
+	\item CBAAC
+\end{enumerate}
+
+
+
+\begin{qsolve}
+	
+در ابتدا بررسی می‌کنیم که کدام رشته‌ها قادر به چاپ هستد:
+
+\begin{enumerate}
+	\item :P1 مقدار اولیه s2 صفر است، بنابراین در خط اول wait(s2) پردازه مسدود می‌شود و هرگز به خط چاپ "A" نمی‌رسد. پس امکان چاپ ندارد.
+	
+	\item :P2 مقدار اولیه s2 صفر است، بنابراین در خط اول wait(s2) پردازه مسدود می‌شود و هرگز به خط چاپ "B" نمی‌رسد. پس امکان چاپ ندارد.
+	
+	\item :P3 مقدار اولیه s1 صفر است، بنابراین در خط سوم wait(s1) پردازه مسدود می‌شود و هرگز به خط چاپ "A" نمی‌رسد. پس امکان چاپ ندارد.
+	
+	\item :P4 هیچ wait اولیه‌ای ندارد، بنابراین پردازه می‌تواند به اجرای خطوط بعدی بپردازد. پس امکان چاپ دارد.
+\end{enumerate}
+
+بنابراین، تنها رشته‌ای که امکان چاپ دارد P4 است.
+
+\begin{enumerate}
+	\item 
+	:P4 بدون هیچ مسدودی، خطوط کد به ترتیب اجرا می‌شوند. بنابراین چاپ ،"A" سیگنال دادن به ،s1 چاپ ،"B" انتظار برای ،s2 چاپ "C" رخ می‌دهد. پس ترتیب اجرای دستورات: ABC است
+	
+\end{enumerate}
+
+
+
+	
+\end{qsolve}
+
+
