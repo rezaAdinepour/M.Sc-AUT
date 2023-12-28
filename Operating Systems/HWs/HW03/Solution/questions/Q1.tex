@@ -1,0 +1,166 @@
+\section{سوال اول}
+
+
+
+
+فرض کنید پردازه های زیر را داریم:
+\begin{latin}
+	\begin{center}
+		\begin{tabular}{||c| c c c||} 
+			\hline
+			- & Arrival time & ‫‪Priority‬‬ number & CPU burst \\ [0.5ex] 
+			\hline\hline
+			P0 & 5 & 1 & 20 \\ 
+			\hline
+			P1 & 0 & 4 & 40 \\ 
+			\hline
+			P2 & 0 & 2 & 20 \\
+			\hline
+			P3 & 13 & 3 & 5 \\
+			\hline
+			P4 & 30 & 4 & 5 \\
+			\hline
+			P5 & 17 & 1 & 10 \\ [1ex] 
+			\hline
+		\end{tabular}
+	\end{center}
+\end{latin}
+
+\begin{enumerate}
+	\item برای زمان‌بندی های FCFS و SJF و SRT و اولویت پسگیر نحوه تخصیص CPU به پردازه‌ها را نشان دهید. (اگر در زمان‌بندی ‫اولویت‬ ‫پسگیر‬ ‫دو‬ ‫پردازه‬ ‫شرایط‬ ‫یکسان‬ ‫برای‬ ‫انتخاب‬ ‫شدن‬ ‫داشتند‬ ‫آنی‬ ‫را‬ ‫انتخاب‬ ‫کنید‬ ‫که‬ ‫زودتر‬ ‫آمده‬ باشد، ‫همچنین‬‫در‬ ‫سایر‬ ‫زمانبند‬ ‫ها‬ ‫آنی‬ ‫را‬ ‫انتخاب‬ ‫کنید‬ ‫که‬ ‫پر‬ ‫اولویت‬ ‫تر‬ ‫است‬)
+	
+	\item میانگین طول عمر، زمان انتظار، زمان پاسخ و بازده CPU پردازه ها را برای هر یک از زمان‌بندی های فوق، محاسبه کنید.
+	
+\end{enumerate}
+
+
+
+
+
+
+
+\begin{qsolve}
+	
+	محاسبات میانگین طول عمر، زمان انتظار، زمان پاسخ و زمان بازده به صورت زیر حساب شده اند.
+	
+	\begin{latin}
+		
+		\begin{itemize}
+			\item \textbf{Average Turnaround Time:}\\
+			Average Turnaround Time = $ \frac{\sum Turnaround\ Time​}{Nnumber\ of\ process} $ \\
+			Turnaround Time = $ Exit\ Time\ - Arrival\ Time $
+			
+			\item \textbf{Average Waiting Time:}\\
+			Average Waiting Time = $ \frac{\sum Waiting\ Time​}{Nnumber\ of\ process} $ \\
+			Waiting Time = $ Turnaround\ Time\ - CPU\ Burst\ Time $
+			
+			\item \textbf{Average Response Time:}\\
+			Average Response Time = $ \frac{\sum Response\ Time​}{Nnumber\ of\ process} $ \\
+			Response Time = $ Start\ Time\ - Arrival\ Time $
+			
+			\item \textbf{Average CPU Utilization:}
+			Average Response Time = $ \frac{\sum CPU\ Burst\ Time​}{Total\ execution\ time} $ \\
+			
+		\end{itemize}
+		
+		
+		
+		
+		
+	\end{latin}
+	
+	\begin{enumerate}
+		\item زمان‌بندی FCFS بدین صورت است که پردازه‌ها بر اساس زمان ورودی به صف اجرا قرار می‌گیرند و اولین پردازه وارد صف اجرا در ابتدا، اولویت بالا تری دارد. بنابر این
+		ترتیب اجرای پردازه‌ها به صورت زیر است:
+		
+		\begin{itemize}
+			\item \textbf{ترتیب اجرا: },P1 ,P2 ,P0 ,P5 ,P3 P4
+			
+			\item \textbf{میانگین طول عمر: }
+			$ (40 + 20 + 20 + 10 + 5 + 5) \div 6 = 16.67$
+			
+			\item \textbf{میانگین زمان انتظار: }
+			$ ((0-0) + (0-0) + (5-0) + (17-0) + (13-17) + (30-13)) \div 6 = 6.83 $
+			
+			\item \textbf{میانگین زمان پاسخ: }
+			$ ((20-0) + (40-0) + (20-5) + (10-17) + (5-13) + (5-30)) \div 6 = 13.33 $
+			
+			\item \textbf{میانگین بازده: }
+			$ (20 + 40 + 20 + 10 + 5 + 5) \div (5 + 40 + 20 + 5 + 5 + 10) = 0.367 $
+		\end{itemize}
+		
+		
+		
+		\item زمان‌بندی :SJF  در این الگوریتم، پردازه با کمترین زمان burst CPU در ابتدا انتخاب می‌شود. اگر دو پردازه دارای زمان مشابهی باشند، پردازه‌ای که زودتر وارد صف اجرا شده است، اولویت بالاتری دارد. بنابراین، ترتیب اجرای پردازه‌ها به صورت زیر است:
+		
+		\begin{itemize}
+			\item \textbf{ترتیب اجرا: },P1 ,P2 ,P5 ,P3 ,P4 P0
+			
+			\item \textbf{میانگین طول عمر: }
+			$ (40 + 20 + 10 + 5 + 5 + 20) \div 6 = 16.67$
+			
+			\item \textbf{میانگین زمان انتظار: }
+			$ ((0-0) + (0-0) + (17-0) + (13-17) + (30-13) + (5-30)) \div 6 = 6.83 $
+			
+			\item \textbf{میانگین زمان پاسخ: }
+			$ ((40-0) + (20-0) + (10-17) + (5-13) + (5-30) + (20-5)) \div 6 = 12.67 $
+			
+			\item \textbf{میانگین بازده: }
+			$ (40 + 20 + 10 + 5 + 5 + 20) \div (5 + 40 + 20 + 5 + 5 + 10) = 0.367 $
+		\end{itemize}
+
+
+		
+		\item زمان‌بندی :SRT
+		 در این الگوریتم، همانند SJF پردازه با کمترین زمان باقی‌مانده از burst CPU در هر لحظه انتخاب می‌شود. اگر دو پردازه دارای زمان مشابهی باشند، پردازه‌ای که زودتر وارد صف اجرا شده است، اولویت بالاتری دارد. بنابراین، ترتیب اجرای پردازه‌ها به صورت زیر است:
+		 
+	\end{enumerate}
+\end{qsolve}
+
+\begin{qsolve}
+	\begin{itemize}
+		\item \textbf{ترتیب اجرا: },P1 ,P2 ,P3 ,P3 ,P5 ,P4 ,P4 ,P0 P0
+		
+		\item \textbf{میانگین طول عمر: }
+		$  (40 + 20 + 5 + 5 + 10 + 5 + 5 + 20 + 20) \div 9 = 13.89 $
+		
+		\item \textbf{میانگین زمان انتظار: }
+		$  ((0-0) + (0-0) + (13-0) + (18-13) + (17-18) + (28-17) + (33-28) + (38-33) + (58-38)) \div 9 = 7.33 $
+		
+		\item \textbf{میانگین زمان پاسخ: }
+		$ ((20-0) + (20-0) + (5-13) + (5-13) + (10-17) + (5-17) + (5-28) + (20-33) + (20-58)) \div 9 = 11.89 $
+		
+		\item \textbf{میانگین بازده: }
+		$ (40 + 20 + 5 + 5 + 10 + 5 + 5 + 20 + 20) \div (5 + 40 + 20 + 5 + 5 + 10 + 5 + 20 + 20) = 0.444 $
+	\end{itemize}
+	
+	\begin{enumerate}
+		\item \textbf{الکوریتم اولویت پسگیر: }
+		\begin{itemize}
+			\item \textbf{ترتیب اجرا: },P1 ,P2 ,P5 ,P0 ,P3 P4 
+			
+			\item \textbf{میانگین طول عمر: }
+			$ (40 + 20 + 10 + 20 + 5 + 5) / 6 = 16.67 $
+			
+			\item \textbf{میانگین زمان انتظار: }
+			$  ((0-0) + (0-0) + (17-0) + (5-0) + (13-5) + (30-13)) \div 6 = 7.83 $
+			
+			\item \textbf{میانگین زمان پاسخ: }
+			$ ((40-0) + (20-0) + (10-17) + (20-5) + (5-13) + (5-30)) \div 6 = 13.33 $
+			
+			\item \textbf{میانگین بازده: }
+			$ (40 + 20 + 10 + 20 + 5 + 5) \div (5 + 40 + 20 + 10 + 5 + 5) = 0.682 $
+		\end{itemize}
+	\end{enumerate}
+	
+\end{qsolve}
+
+
+
+
+
+
+
+
+
+

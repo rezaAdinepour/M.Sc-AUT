@@ -1,0 +1,138 @@
+\section{سوال ششم}
+
+در این تمرین می‌خواهیم نحوه عملکرد Scheduler های لینوکس را مورد بررسی قرار دهیم. به‌طور کلی در لینوکس سه نوع Scheduler وجود دارد:
+\begin{latin}
+	\begin{enumerate}
+		\item SCHED\_OTHER
+		\item SCHED\_FIFO
+		\item SCHED\_RR
+	\end{enumerate}
+\end{latin}
+
+در زبان C می‌توانیم مشخص کنیم که با چه Scheduler ای برنامه‌مان اجرا شود. برای این تمرین نیاز داریم که دو پردازه داشته باشیم و آنها را با Scheduler های مختلف تست کنیم.
+
+برای نوشتن این برنامه به کتابخانه های زیر نیاز داریم:
+\begin{latin}
+	\texttt{\#include <sched.h>}\\
+	\texttt{\#include <stdio.h>}\\
+	\texttt{\#include <sys/resource.h>}\\
+	\texttt{\#include <unistd.h>}\\
+\end{latin}
+
+برای تغییر policy Scheduler برنامه، از دستور زیر استفاده می‌شود:
+\begin{latin}
+	\texttt{struct sched\_param param}\\
+	\texttt{sched\_setscheduler(getpid(), SCHED\_FIFO, \&param)} \\
+\end{latin}
+
+ساختار sched\_param پارامتر های scheduler را مشخص می‌کند. برای تغییر اولویت پردازه از این استراکت استفاده می‌کنیم:
+\begin{latin}
+	\texttt{param.sched\_priority = PRIORITY\_NUM}\\
+\end{latin}
+
+نکته: ‫در‬ ‫اینجا‬ ‫هر‬ ‫چه‬ ‫مقدار‬ ‫بیشتر‬ ‫باشد‪،‬‬ ‫اولویت‬ ‫بالاتر‬ ‫است‪.‬‬ ‫و‬ ‫مقداری‬ ‫که‬ ‫اینجا‬ ‫تعیین‬ ‫میشود‬ ‫با‬ ‫مقداری‬ ‫که‬ ‫در‬ ستون Priority پردازه در ستون Top می‌بینید متفاوت است.
+
+‫با‬‫استفاده‬ ‫از‬ ‫این‬ ‫دستورات‪،‬‬ ‫برنامه‬ ‫ای‬ ‫بنویسید‬ ‫و‬ ‫سناریو‬ ‫های‬ ‫زیر‬ ‫را‬ ‫برای‬ ‫دو‬ ‫پردازه‬ ‫همزمان‬ ‫تست‬ ‫کنید‬ ‫(برنامه‬ ‫ای‬ ‫بنویسید‬‫ که‬ ‫زمان‬ ‫زیادی‬ ‫داشته‬ ‫باشد‬ ‫که‬ ‫بتوانید‬ ‫خروجی‬ ‫ها‬ ‫را‬ ‫مقایسه‬ ‫کنید‪.‬‬ ‫برای‬ ‫نمونه‬ ‫می‬ ‫توانید‬ ‫از‬ ‫قطعه‬ ‫کد زیر استفاده کنید: )
+
+\begin{latin}
+\begin{lstlisting}
+int n = 0;
+while(1)
+{
+  n++;
+  if(!(n % 10000000))
+  {
+  	printf("FIFO running (n=%d) \n", n)
+  }
+}		
+\end{lstlisting}
+\end{latin}
+
+\textbf{نکته: }تغییر scheduler یک پردازه نیازمند دسترسی Root است بنابر این برنامه را با sudo اجرا کنید.
+
+\textbf{نکته: }دوپردازه را باید روی یک cpu اجرا کنیم تا نتیجه مد نظر را ببینیم. برای اجرای یک پردازه روی یک core cpu از دستور زیر استفاده می‌کنیم:
+
+
+\begin{latin}
+\texttt{sudo taskset -c 0 ./FIFO.o}
+\end{latin}
+
+\textbf{سناریو ۱:‌}\\
+پردازه اول:‌ SCHED\_FIFO و priority=1\\
+پردازه دوم:‌ SCHED\_FIFO و priority=1\\
+
+\textbf{سناریو ۲:}\\
+پردازه اول:‌ SCHED\_RR و priority=1\\
+پردازه دوم:‌ SCHED\_RR و priority=1\\
+
+\textbf{سناریو ۳:}\\
+پردازه اول:‌ SCHED\_FIFO و priority=1\\
+پردازه دوم:‌ SCHED\_FIFO و priority=2\\
+
+
+
+\begin{qsolve}
+	برنامه نوشته شده به صورت زیر است:
+	
+\begin{latin}
+\begin{lstlisting}[caption=code]
+#include <sched.h>
+#include <stdio.h>
+#include <sys/resource.h>
+#include <unistd.h>
+#include <sys/wait.h>
+
+int main() 
+{
+  struct sched_param param;
+  param.sched_priority = 1;
+
+  sched_setscheduler(getpid(), SCHED_FIFO, &param);
+
+  pid_t pid = fork();
+
+  if (pid == 0) 
+  {
+	int n = 0;
+	while (1) 
+	{
+	  n++;
+	  if (!(n % 10000000)) 
+	  {
+	    printf("Running (n=%d)\n", n);
+	  }
+	  else if (pid > 0) 
+	  {
+	  	wait(NULL);
+	  } 
+	  else 
+	  {
+	  	printf("Fork failed\n");
+	  	return 1;
+	  }
+	  
+	  return 0;
+	  }
+	}
+} 
+\end{lstlisting}
+\end{latin}
+
+سپس برنامه را با دستور زیر کامپایل و اجرا می‌کنیم:
+\begin{latin}
+\texttt{gcc -o scheduler\_program scheduler\_main.c}\\
+\texttt{sudo taskset -c 0 ./scheduler\_program}
+\end{latin}
+
+
+
+
+\end{qsolve}
+
+
+
+
+
+
+
+
