@@ -222,4 +222,49 @@ Q.~Qian, Y.~Qin, J.~Luo, Y.~Wang, and F.~Wu, ``Deep discriminative transfer
   learning network for cross-machine fault diagnosis,'' \emph{Mechanical
   Systems and Signal Processing}, vol. 186, no. 109884, 2023.
 
+\bibitem{article39}
+J.~Wu, K.~Hu, Y.~Cheng, H.~Zhu, X.~Shao, and Y.~Wang, ``Data-driven remaining
+  useful life prediction via multiple sensor signals and deep long short-term
+  memory neural network,'' \emph{ISA Transactions}, vol.~97, pp. 241--250,
+  2020.
+
+\bibitem{article40}
+S.~Zheng, A.~Farahat, and C.~Gupta, ``Generative adversarial networks for
+  failure prediction,'' \emph{Machine Learning and Knowledge Discovery in
+  Databases}, vol. 11908, pp. 621--637, 2020.
+
+\bibitem{article41}
+H.~Lu, V.~Barzegar, V.~P. Nemani, C.~Hu, S.~Laflamme, and A.~T. Zimmerman,
+  ``Joint training of a predictor network and a generative adversarial network
+  for time series forecasting: A case study of bearing prognostics,''
+  \emph{Expert Systems with Applications}, vol. 203, no. 117415, 2022.
+
+\bibitem{article42}
+I.~Remadna, L.~S. Terrissa, Z.~A. Masry, and N.~Zerhouni, ``Rul prediction
+  using a fusion of attention-based convolutional variational autoencoder and
+  ensemble learning classifier,'' \emph{IEEE Transactions on Reliability},
+  vol.~72, no. 117415, pp. 106--124, 2023.
+
+\bibitem{article43}
+B.~Li, B.~Tang, L.~Deng, and M.~Zhao, ``Self-attention convlstm and its
+  application in rul prediction of rolling bearings,'' \emph{IEEE Transactions
+  on Instrumentation and Measurement}, vol.~70, 2021.
+
+\bibitem{article44}
+H.~Lu, V.~Barzegar, V.~P. Nemani, C.~Hu, S.~Laflamme, and A.~T. Zimmerman,
+  ``Gan-lstm predictor for failure prognostics of rolling element bearings,''
+  \emph{2021 IEEE International Conference on Prognostics and Health Management
+  (ICPHM)}, 2021.
+
+\bibitem{article45}
+Y.~Mo, Q.~Wu, X.~Li, and B.~Huang, ``Remaining useful life estimation via
+  transformer encoder enhanced by a gated convolutional unit,'' \emph{Journal
+  of Intelligent Manufacturing}, vol.~32, p. 1997–2006, 2021.
+
+\bibitem{article46}
+Y.~Lei, N.~Li, L.~Guo, N.~Li, T.~Yan, and J.~Lin, ``Machinery health
+  prognostics: A systematic review from data acquisition to rul prediction,''
+  \emph{Mechanical Systems and Signal Processing}, vol. 104, pp. 799--834,
+  2018.
+
 \end{thebibliography}
