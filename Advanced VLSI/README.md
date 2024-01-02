@@ -14,5 +14,7 @@ Neil H. E. Weste and D. M. Harris, *CMOS VLSI Design A Circuits and Systems Pers
 | 3 | Project | 25% |
 | 4 | Final | 25% |
 
-## End Session Picture:
+## Last Class Session:
+### Names of students from left to right:
+
 ![image](Final_Pic.jpg)
