@@ -16,7 +16,6 @@ Neil H. E. Weste and D. M. Harris, *CMOS VLSI Design A Circuits and Systems Pers
 
 ## Last Class Session:
 ### Names of students from left to right:
-**Standing:** Ashkan Moshfegh, Kiana Peiro, Mahsa Kashani, Seyyed Hamed Ghorayshizadeh, Sadra Zamani, **Reza Adinepour**, Amirhossein Shahabi, Soroush Nanbakhsh, Amirhossein Motaghian, Saba Sadat Seyyed Tabaei, Romina Shirin nasab, Leila Mohseni
 
-**sitting:** Arshia Hashemzadeh, Mehdi Najibpour, Sina Yarmohammadi
+-, Fatemeh Hasani, Fatemeh Barati, Parnian Sagheb, Fargheh Mahmoudian, **Prof. Mehdi Sedighi**, Amir Ali Roushanzadeh, Reza Adinepour, Saeed Rajabi, Amirreza Hoseini, Ehsan Moradi, Shayan Naghizadeh, Mohammad Mirzaei, Mohammad Mehdi Nemati
 ![image](Final_Pic.jpg)
