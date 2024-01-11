@@ -1,0 +1,35 @@
+\section{سوال سوم}
+یک سیستم که از Paging MultiLavel استفاده می‌کند را درنظر بگیرید. اندازه هر صفحه ۳۲ کبلو بایت است. حافظه با بایت آدرس‌دهی می‌شود و اندازه آدرس مجازی ۴۸ بیت است. اندازه ورودی Table Page هم ۴ بایت است. چند سطح از Table Page اتخاذ می‌شود؟ 
+
+\begin{qsolve}
+	
+	برای محاسبه تعداد سطوح TablePage در PagingMultiLevel، می‌توانیم از اطلاعات زیر استفاده کنیم:
+	
+	\begin{enumerate}
+		\item اندازه آدرس مجازی: ۴۸ بیت
+		\item اندازه صفحه:‌۳۲ کیلوبایت
+		\item اندازه ورودی :PageTable ۴ بایت
+	\end{enumerate}
+	
+	حالا می‌توانیم محاسبه کنیم:
+	
+	\begin{enumerate}
+		\item تعداد بیت‌ها برای آدرس مجازی:
+		$log_2(size \ of \ virtual address) = log_2(2^{48}) = 48 bit$
+		
+		\item تعداد بیت‌ها برای آدرس صفحه :(Offset)
+		$log_2(size \ of \ page) = log_2(2^{15}) = 15 bit$
+		
+		\item تعداد بیت‌ها برای آدرس مجازی با توجه به :Offset
+		$48 - 15 = 33 bit$
+		
+		\item تعداد بیت‌ها برای هر ورودی :TablePage
+		$log_2(size \ of \ input \ page \ table) = log_2(2^4) = 4 bit$
+		
+		\item تعداد سطوح :TablePage
+		$\frac{33}{4} = 8.25$
+		
+اما چون تعداد سطوح باید صحیح باشد، ما به بالا گرد می‌کنیم. بنابراین، از ۹ سطح از TablePage استفاده می‌شود.
+	\end{enumerate}
+	
+\end{qsolve}
