@@ -1,0 +1,84 @@
+\section{سوال سوم}
+با توجه به برنامه زیر به موارد خواسته شده پاسخ دهید. (فرض کنید  \texttt{Thread} ها در ابتدا به ترتیب شروع می‌شوند)
+
+\begin{latin}
+\begin{lstlisting}[label=first,caption=Some Code, language=C]
+P1:
+  fork()
+  func1:
+    print("x")
+  func2:
+    fork();
+  t1 = ‫‪pthread‬‬(func1)
+  t2 = ‫‪pthread‬‬(func2)
+  t3 = ‫‪pthread‬‬(func1)
+  join t1, t2, t3
+  wait()
+	
+\end{lstlisting}
+\end{latin}
+
+
+\begin{qsolve}
+	\begin{enumerate}
+		\item ‫تعداد‬ \texttt{‫‪x}‬‬ ‫های‬ ‫چاپ‬ ‫شده‬ ‫بعد‬ ‫از‬ ‫اتمام‬ ‫برنامه‬: \\
+		تابع \texttt{func1} به صورت موازی توسط 3 نخ فراخوانی می‌شود. پس در مجموع، این تابع 3 بار اجرا می‌شود و در نتیجه 3 بار \texttt{"x"} چاپ می‌شود.
+		
+		
+		
+		\item ‫تعداد‬ ‫پردازه‬ ‫ها‬ ‫بعد‬ ‫از‬ ‫اتمام‬ ‫برنامه‬: \\
+		در ابتدا، یک پردازه وجود دارد. با اجرای دستور \texttt{fork()}، یک پردازه جدید ایجاد می‌شود و تعداد پردازه‌ها به 2 افزایش می‌یابد. در تابع \texttt{func2}، یک \texttt{fork()} دیگر وجود دارد که تعداد پردازه‌ها به 4 افزایش می‌یابد. پس از اتمام تمامی \texttt{thread} ها، تعداد پردازه‌ها 4 است.
+		
+		
+		
+		
+		\item ‫تعداد‬ ‫ترد‬ ‫ها‬ ‫بعد‬ ‫از‬ ‫اتمام‬ ‫برنامه‬: \\
+		در ابتدا، یک نخ اصلی وجود دارد.
+		سپس با ایجاد تردهای \texttt{t1}، \texttt{t2} و \texttt{t3}، تعداد تردها به 4 افزایش می‌یابد.
+		پس از اتمام تردها، تعداد تردها 4 است.
+		
+		
+		\item ‫رسم‬ ‫درخت‬ ‫پردازه‬ ‫ها‬ ‫و‬ ‫مشخص‬ ‫کردن‬ ‫تعداد‬ ‫ترد‬ ‫های‬ ‫هرکدام‬: \\
+پردازه اصلی \texttt{P} دارای 3 ترد است: \texttt{t1}، \texttt{t2}، \texttt{t3}.
+پردازه اولیه که از طریق \texttt{fork} ایجاد شد دارای 1 ترد است: \texttt{t2}.
+پردازه‌های دوم و سوم که از طریق \texttt{fork} در تابع \texttt{func1} ایجاد شدند هر کدام دارای 1 ترد است: \texttt{t1} و \texttt{t3}.
+		
+\begin{latin}
+	\begin{tikzpicture}[
+		level/.style={sibling distance=50mm/#1},
+		process/.style={circle, draw, minimum size=1.5em, inner sep=0pt}
+		]
+		\node[process] (p1) {P1}
+		child {node[process] (p2) {P2}
+			child {node[process] (p3) {P3}
+				child {node {t1}}
+			}
+			child {node {t2}}
+		}
+		child {node {t3}};
+	\end{tikzpicture}
+\end{latin}
+		
+		
+		
+		
+		\item ‫خالصه‬ ‫از‬ ‫فرآیند‬ ‫را‬ ‫شرح‬ ‫دهید‬:
+		\begin{itemize}
+			\item در ابتدا، یک پردازه ایجاد می‌شود.
+			\item با اجرای دستور \texttt{fork()}، یک پردازه جدید ایجاد می‌شود و تعداد پردازه‌ها به 2 افزایش می‌یابد.
+			\item در پردازه اصلی، 3 ترد (\texttt{t1}، \texttt{t2} و \texttt{t3}) با استفاده از تابع \texttt{pthread} ایجاد می‌شوند.
+			\item در پردازه اصلی، ترد \texttt{t1} تابع \texttt{func1} را فراخوانی می‌کند و یک \texttt{"x"} چاپ می‌شود.
+			\item در پردازه اصلی، ترد \texttt{t2} تابع \texttt{func2} را فراخوانی می‌کند و یک پردازه جدید ایجاد می‌شود که نام آن همچنان \texttt{P} است.
+			\item در پردازه جدید \texttt{(P)}، ترد \texttt{t2} تابع \texttt{func2} را فراخوانی می‌کند و یک پردازه جدید ایجاد می‌شود.
+			\item در پردازه جدید \texttt{(P)}، ترد \texttt{t1} تابع \texttt{func1} را فراخوانی می‌کند و یک \texttt{"x"} چاپ می‌شود.
+			\item در پردازه اصلی، ترد \texttt{t3} تابع \texttt{func1} را فراخوانی می‌کند و یک \texttt{"x"} چاپ می‌شود.
+			\item پس از اتمام تمامی تردها، تعداد پردازه‌ها 4 است و برنامه به پایان می‌رسد.
+			
+			
+		\end{itemize}
+		
+		
+		
+		
+	\end{enumerate}
+\end{qsolve}
