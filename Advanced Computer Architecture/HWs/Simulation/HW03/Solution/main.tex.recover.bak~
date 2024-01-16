@@ -1,0 +1,155 @@
+%           ******************************************************
+%          **   course         : Advanced Computer Architecture  **
+%         ***   HomeWork       : 01                              ***
+%        ****   Topic          : Introduction to Gem5            ****
+%        ****   AUTHOR         : Reza Adinepour                  ****
+%         ***   Student ID:    : 402131055                       ***
+%          **   Github         : github.com/rezaAdinepour/       **
+%           ******************************************************
+
+\documentclass[12pt]{exam}
+
+\usepackage{setspace}
+\usepackage{listings}
+\usepackage{graphicx,subfigure,wrapfig}
+\usepackage{multirow}
+\usepackage{blindtext}
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	pdftitle={Overleaf Example},
+	pdfpagemode=FullScreen,
+}
+\usepackage{xcolor}
+\usepackage{code-style}
+\usepackage{caption}
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{%
+	\parbox{\textwidth}{\colorbox{gray}{\parbox{\textwidth}{#1#2#3}}\vskip-4pt}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
+\lstset{frame=lrb,xleftmargin=\fboxsep,xrightmargin=-\fboxsep}
+
+
+\usepackage[margin=20mm]{geometry}
+\usepackage{xepersian}
+\settextfont{XB Niloofar}
+
+\newcommand{\class}{درس معماری کامپیوتر پیشرفته}
+\newcommand{\term}{نیم‌سال اول ۰۲-۰۳}
+\newcommand{\college}{دانشکده مهندسی کامپیوتر}
+\newcommand{\prof}{استاد: دکتر فربه}
+
+\singlespacing
+\parindent 0ex
+
+\lstset{
+keywordstyle=\textbf,
+identifierstyle=, 
+stringstyle=\ttfamily,
+commentstyle=\color{LimeGreen}, 
+stringstyle=\ttfamily,
+numberstyle=\footnotesize,
+showstringspaces=false} 
+\begin{document}
+
+\include{info}
+\pagestyle{empty}
+\include{cover-page}
+
+% These commands set up the running header on the top of the exam pages
+\pagestyle{head}
+\firstpageheader{}{}{}
+\runningheader{صفحه \thepage\ از \numpages}{}{\class}
+\runningheadrule
+\vspace{0pt}
+
+• دو شبه کد زیر را برای مسئله ضرب ماتریس‌ها در نظر بگیرید و گام‌های زیر را با توجه به آن کامل کنید.\\
+
+\begin{latin}
+\begin{algorithm}
+	\caption{Matrix multiplication}\label{alg:cap}
+	\begin{algorithmic}
+		\Require Input Matrix A and B
+		\Require Let C be a new matrix of the appropriate size
+		\For{i from 1 to n:}
+			\For{j from 1 to p:}
+			\State $sum \gets 0$
+				\For{k from 1 to m:}
+					\State $sum \gets A_{ik}\times B_{kj}$
+				\EndFor
+			\State $C_{}$
+			
+			\EndFor
+		\EndFor
+		\State $y \gets 1$
+		\State $X \gets x$
+		\State $N \gets n$
+		\While{$N \neq 0$}
+		\If{$N$ is even}
+		\State $X \gets X \times X$
+		\State $N \gets \frac{N}{2}$  \Comment{This is a comment}
+		\ElsIf{$N$ is odd}
+		\State $y \gets y \times X$
+		\State $N \gets N - 1$
+		\EndIf
+		\EndWhile
+	\end{algorithmic}
+\end{algorithm}
+\end{latin}
+
+
+
+
+
+
+
+
+
+
+
+•  نوشتن نام خود را فراموش نفرمایید.\\
+
+
+%\baselineskip = 9mm
+
+\begin{questions}
+	\pointpoints
+	
+	
+	\question
+	کار برنامه زیر چیست؟ 
+\end{questions}
+
+\begin{multicols}{1}
+	[
+	\section{بخش اول}
+	در اینجا می‌توان مقدمه ای در مورد کل پاراگراف مورد نظر نوشت.
+	]
+	این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است این متن جهت تست نوشته شده است 
+\end{multicols}
+
+
+\begin{latin}
+	
+	\lstinputlisting[
+	caption=Example Python,
+	label={lst:listing-cpp},
+	language=python,
+	style=myStyle,
+	]{codes/ACA_HW02_Part1.py}
+
+\end{latin}
+
+
+
+\end{document}
